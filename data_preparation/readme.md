@@ -1,4 +1,4 @@
-# Instructions to collect the multilingual corpus and the music genre graph from DBpedia
+# Instructions to prepare the data for learning and evaluation
 
 Packages required:
 ```
@@ -44,7 +44,8 @@ python data_preparation/step6_clean_dbp_graph.py
 python data_preparation/step7_create_tries.py
 ```
 
-### Step 8: Generate normalized undirected genre graphs for the 2 experiments. For the English only experiment, create a new music genre graph from the English DBpedia and the AcousticBrainz taxonomies (lastfm, discogs and tagtraum)
+### Step 8: Generate normalized undirected genre graphs for the 2 experiments (multilingual and acousticbrainz)
+For the English only experiment, create a new music genre graph from the English DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (lastfm, discogs and tagtraum)
 
 Important: make sure that acousticbrainz folder containing the stats files for each taxonomy is downloaded and positioned in the data/ folder (e.g. discogs.csv.stats)
 ```
