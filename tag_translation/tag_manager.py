@@ -7,11 +7,11 @@ class TagManager:
     """ Tag Manager class used for normalizing tags and preparing multilabelbinarizer objects used in evaluation"""
     _MANAGERS_ = {}
 
-    def __init__(self, sources, target):
+    def __init__(self, sources, target, source_tags, target_tags):
         self._sources = sources
         self._target = target
-        self.source_tags = [el for source in sources for el in utils.get_tags_for_source(source)]
-        self.target_tags = [el for el in utils.get_tags_for_source(target)]
+        self.source_tags = source_tags
+        self.target_tags = target_tags
         self._mlb_sources = None
         self._mlb_target = None
 
@@ -22,6 +22,14 @@ class TagManager:
     @property
     def target(self):
         return self._target
+
+    @property
+    def unprefixed_source_tags(self):
+        return [t.split(":")[1] for t in self.source_tags]
+
+    @property
+    def unprefixed_target_tags(self):
+        return [t.split(":")[1] for t in self.target_tags]
 
     @property
     def mlb_sources(self):
@@ -124,11 +132,11 @@ class TagManager:
         return new_s
 
     @classmethod
-    def get(cls, sources, target):
+    def get(cls, sources, target, source_tags, target_tags):
         """ Returns a instance of a tag manager for the specific sources and target"""
         sources_key = " ".join(sorted(sources))
         if sources_key not in cls._MANAGERS_ or target not in cls._MANAGERS_[sources_key]:
-            m = TagManager(sources, target)
+            m = TagManager(sources, target, source_tags, target_tags)
             cls._MANAGERS_.setdefault(sources_key, {})
             cls._MANAGERS_[sources_key][target] = m
         return cls._MANAGERS_[sources_key][target]

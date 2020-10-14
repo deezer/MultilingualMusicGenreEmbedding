@@ -2,9 +2,10 @@ import numpy as np
 from sklearn.metrics import roc_auc_score
 
 
-class Judge():
+class Judge:
     """Judge class to compute evaluation metrics"""
-    def compute_macro_metrics(ground_truth, pred):
+
+    def compute_macro_metrics(self, ground_truth, pred):
         """Compute macro roc auc scores
         :param ground_truth: the ground truth annotations
         :param pred: the predicted annotations:

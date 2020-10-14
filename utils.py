@@ -159,6 +159,17 @@ def corpus_genres_per_lang(df, min_count=1):
     return selected_tags
 
 
+def corpus_genres_for_source(df, source):
+    """Get corpus genres per source which appear at least min_count times
+    :param df: the corpus
+    :return: the genres per source
+    """
+    tags = set()
+    for annotations in df[source].dropna().tolist():
+        tags.update(ast.literal_eval(str(annotations)))
+    return list(tags)
+
+
 def get_genre_rels_filter(lang):
     """ Helper to format the part of the query which retrieves music genres by crawling genre relations
     :param lang: the language of the DBpedia which is queried
@@ -212,7 +223,7 @@ def get_ent_name(ent):
 
 def get_tags_for_source(source, graph_path=GRAPH_PATH):
     """Get unique music genres in the multilingual graph for a source
-    :param source: the source / language
+    :param source: the language
     :param graph_path: the graph file path
     :return: tags per source / language
     """
@@ -271,6 +282,28 @@ def read_embeddings(path, sep=' '):
     return embeddings, emb_dim
 
 
+def load_row(r):
+    """Tranforms dataframe entries of type string representing lists in lists, or empty lists if they are Nan
+    :param r: the column to consider
+    :return: the processed column
+    """
+    if isinstance(r, float):
+        return []
+    else:
+        return ast.literal_eval(r)
+
+
+def format_values(r):
+    """If tags are DBpedia genres written using the full URL then it formats them by keeping only the name
+    :param r: the column to consider
+    :return: the processed column
+    """
+    formatted_r = []
+    for v in r:
+        formatted_r.append(get_ent_name(v))
+    return formatted_r
+
+
 def load_tag_csv(path, cols, sep='\t', format_values=False):
     """Load a tag csv in a dataframe
     :param path: the dataset file path
@@ -280,21 +313,20 @@ def load_tag_csv(path, cols, sep='\t', format_values=False):
     :return: a dataframe with the data
     """
     df = pd.read_csv(path, sep=sep)
-
-    def load_row(r):
-        if isinstance(r, float):
-            return []
-        else:
-            return eval(r)
-
-    def format_values(r):
-        formatted_r = []
-        for v in r:
-            formatted_r.append(get_ent_name(v))
-        return formatted_r
-
     for col in cols:
         df[col] = df[col].apply(load_row)
         if format_values:
             df[col] = df[col].apply(format_values)
     return df
+
+
+def read_translation_table(path, tag_manager):
+    """Read pre-computed trabslation table
+    :param path: csv file path
+    :param tag_manager: instance of type TagManager
+    :return: the translation table as dataframe
+    """
+    kb_tr_table = pd.read_csv(path, index_col=0)
+    kb_tr_table = kb_tr_table[tag_manager.mlb_target.classes_]
+    kb_tr_table = kb_tr_table.reindex(tag_manager.mlb_sources.classes_)
+    return kb_tr_table
