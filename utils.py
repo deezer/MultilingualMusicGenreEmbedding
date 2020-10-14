@@ -32,7 +32,7 @@ NORM_MULTILING_GRAPH_PATH = 'data/norm_multilang.graphml'
 # Relative path of the normalized English only genre graph
 NORM_EN_GRAPH_PATH = 'data/norm_acousticbrainz.graphml'
 # Relative path of the aligned fastText embeddings
-ALIGNED_FT_EMB_PATH = '/Users/eepure/Documents/Projects/MultiLangTagTranslation/data/aligned_embeddings/'
+ALIGNED_FT_EMB_PATH = 'data/aligned_embeddings/'
 
 # Graph will be loaded only once and stored here
 GRAPH = None
