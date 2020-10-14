@@ -4,8 +4,6 @@ import ast
 import pickle
 from collections import Counter
 
-from sklearn.preprocessing import MultiLabelBinarizer
-
 import numpy as np
 import pandas as pd
 import networkx as nx
@@ -273,14 +271,14 @@ def read_embeddings(path, sep=' '):
     return embeddings, emb_dim
 
 
-
-
-
-
-
-
-
-def load_tag_csv(path, sources=langs, sep='\t'):
+def load_tag_csv(path, cols, sep='\t', format_values=False):
+    """Load a tag csv in a dataframe
+    :param path: the dataset file path
+    :param cols: the columns mapped on the sources / languages
+    :param sep: the separator in the csv file
+    :param format_values: if the values need entity formatting
+    :return: a dataframe with the data
+    """
     df = pd.read_csv(path, sep=sep)
 
     def load_row(r):
@@ -295,170 +293,8 @@ def load_tag_csv(path, sources=langs, sep='\t'):
             formatted_r.append(get_ent_name(v))
         return formatted_r
 
-    for source in sources:
-        df[source] = df[source].apply(load_row)
-        df[source] = df[source].apply(format_values)
+    for col in cols:
+        df[col] = df[col].apply(load_row)
+        if format_values:
+            df[col] = df[col].apply(format_values)
     return df
-
-
-def format_tags_for_source(tags, source):
-    return [source + ":" + t for t in tags]
-
-
-def format_dataset_rows_and_split(df, sources, target):
-    train_data = []
-    target_data = []
-    for t in zip(*[df[s] for s in list(sources) + [target]]):
-        stags = t[:len(sources)]
-        ttags = t[-1]
-        train_data.append([])
-        for i, s in enumerate(sources):
-            train_data[-1].extend(format_tags_for_source(stags[i], s))
-        target_data.append(format_tags_for_source(ttags, target))
-    return train_data, target_data
-
-
-class TagManager:
-    _MANAGERS_ = {}
-
-    def __init__(self, sources, target):
-        self._sources = sources
-        self._target = target
-        self.source_tags = [el for source in sources for el in get_tags_for_source(source)]
-        self.target_tags = [el for el in get_tags_for_source(target)]
-        self._mlb_sources = None
-        self._mlb_target = None
-
-    @property
-    def sources(self):
-        return self._sources
-
-    @property
-    def target(self):
-        return self._target
-
-    @property
-    def mlb_sources(self):
-        if self._mlb_sources is None:
-            self._mlb_sources = MultiLabelBinarizer(classes=self.source_tags, sparse_output=True)
-            self._mlb_sources.fit([[]])
-        return self._mlb_sources
-
-    @property
-    def mlb_target(self):
-        if self._mlb_target is None:
-            self._mlb_target = MultiLabelBinarizer(classes=self.target_tags, sparse_output=True)
-            self._mlb_target.fit([[]])
-        return self._mlb_target
-
-    def transform_for_target(self, df, as_array=False):
-        if as_array:
-            return self.mlb_target.transform(df).toarray().astype("float32")
-        else:
-            return self.mlb_target.transform(df)
-
-    def transform_for_sources(self, df, as_array=False):
-        if as_array:
-            return self.mlb_sources.transform(df).toarray().astype("float32")
-        else:
-            return self.mlb_sources.transform(df)
-
-    @staticmethod
-    def normalize_tag(tag, prefixed=True, asList=False):
-        if prefixed:
-            tag = tag[3:]
-        return TagManager._norm_basic(tag, asList=asList)
-
-    @staticmethod
-    def normalize_tag_wtokenization(tag, trie, prefixed=True, asList=False):
-        """Normalize a tag and then apply a trie split
-        """
-        words = set()
-        tag_tokens = TagManager.normalize_tag(tag, prefixed, asList=True)
-        for t in tag_tokens:
-            if len(t) <= 3 or trie.has_word(t):
-                words.add(t)
-            else:
-                tokens = trie.tokenize(t)
-                if len(tokens) == 0:
-                    words.add(t)
-                else:
-                    words.update(tokens)
-            if '' in words:
-                words.remove('')
-        sorted_words = sorted(words)
-        if asList:
-            return sorted_words
-        else:
-            return ' '.join(sorted_words)
-
-    @staticmethod
-    def normalize_tag_basic(t, prefixed=True):
-        if prefixed:
-            t = t[3:]
-        return t.lower().replace('_', '-').replace(',', '')
-
-    @staticmethod
-    def _norm_basic(s, asList=False, sort=False):
-        """
-        Perform a basic normalization
-        -lower case
-        -replace special characters by space
-        -sort the obtained words
-        """
-        split_chars_gr1 = ['_', '-', '/', ',', '・']
-        split_chars_gr2 = ['(', ')', "'", "’", ':', '.', '!', '‘', '$']
-        s = list(s.lower())
-        new_s = []
-        for c in s:
-            if c in split_chars_gr1:
-                new_s.append(' ')
-            elif c in split_chars_gr2:
-                continue
-            else:
-                new_s.append(c)
-        new_s = ''.join(new_s)
-        if sorted or asList:
-            words = new_s.split()
-            if sort:
-                words = sorted(words)
-                return ' '.join(words)
-            if asList:
-                return words
-        return new_s
-
-    @classmethod
-    def get(cls, sources, target):
-        sources_key = " ".join(sorted(sources))
-        if sources_key not in cls._MANAGERS_ or target not in cls._MANAGERS_[sources_key]:
-            m = TagManager(sources, target)
-            cls._MANAGERS_.setdefault(sources_key, {})
-            cls._MANAGERS_[sources_key][target] = m
-        return cls._MANAGERS_[sources_key][target]
-
-
-class DataHelper:
-
-    def __init__(self, tag_manager, dataset_path=None):
-        self.tag_manager = tag_manager
-        self.dataset_path = dataset_path
-        self.dataset_df = None
-        if self.dataset_path is not None:
-            self._load_dataset()
-
-    def _load_dataset(self):
-        print("Loading dataset...")
-        self.dataset_df = load_tag_csv(self.dataset_path)
-        print("Loaded.")
-
-    def get_test_data(self, fold, as_array=True):
-        return self._get_dataset_split(fold, as_array)
-
-    def _get_dataset_split(self, fold, as_array):
-        bool_index = self.dataset_df.fold == fold
-        df = self.dataset_df[bool_index]
-        train_data, target_data = format_dataset_rows_and_split(df, self.tag_manager.sources, self.tag_manager.target)
-        return self.transform_sources_and_target_data(train_data, target_data, as_array)
-
-    def transform_sources_and_target_data(self, source_df, target_df, as_array):
-        return self.tag_manager.transform_for_sources(source_df, as_array), self.tag_manager.transform_for_target(target_df, as_array)
