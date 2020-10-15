@@ -11,4 +11,4 @@ This repository will provide Python code<sup>1</sup> to reproduce the cross-ling
 }
 ```
 
-> <sup>1</sup> The current code is not fully ready, but it will be available soon together with the link to download the data in order to reproduce the experiments reported in the paper.
+> <sup>1</sup> The current code is not fully ready, but it will be available soon together with the link to download the data needed to reproduce the experiments reported in the paper.
