@@ -252,12 +252,13 @@ def get_graph(graph_path=GRAPH_PATH):
     return GRAPH
 
 
-def load_trie(lang):
+def load_trie(lang, trie_dir=TRIES_DIR):
     """Load trie for a language
     :param lang: the targetted language
+    :param trie_dir: the directory where tries are serialized
     """
     lemma_trie = None
-    with open(os.path.join(TRIES_DIR, lang, 'lemma_trie'), 'rb') as f:
+    with open(os.path.join(trie_dir, lang, 'lemma_trie'), 'rb') as f:
         lemma_trie = pickle.load(f)
     return lemma_trie
 
@@ -320,13 +321,14 @@ def load_tag_csv(path, cols, sep='\t', format_values=False):
     return df
 
 
-def read_translation_table(path, tag_manager):
+def read_translation_table(path, tag_manager=None):
     """Read pre-computed trabslation table
     :param path: csv file path
     :param tag_manager: instance of type TagManager
     :return: the translation table as dataframe
     """
     kb_tr_table = pd.read_csv(path, index_col=0)
-    kb_tr_table = kb_tr_table[tag_manager.mlb_target.classes_]
-    kb_tr_table = kb_tr_table.reindex(tag_manager.mlb_sources.classes_)
+    if tag_manager:
+        kb_tr_table = kb_tr_table[tag_manager.mlb_target.classes_]
+        kb_tr_table = kb_tr_table.reindex(tag_manager.mlb_sources.classes_)
     return kb_tr_table

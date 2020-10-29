@@ -110,15 +110,12 @@ class TagManager:
         :param sort: if the obtained tokens are sorted before concatenation
         :return: the normalized tag
         """
-        split_chars_gr1 = ['_', '-', '/', ',', '・']
-        split_chars_gr2 = ['(', ')', "'", "’", ':', '.', '!', '‘', '$']
+        split_chars = ['_', '-', '(', ')', '/', '\\', ',', "'", "’", ':', ';', '.', '!', '?', '‘', '&']
         s = list(s.lower())
         new_s = []
         for c in s:
-            if c in split_chars_gr1:
+            if c in split_chars:
                 new_s.append(' ')
-            elif c in split_chars_gr2:
-                continue
             else:
                 new_s.append(c)
         new_s = ''.join(new_s)
