@@ -2,8 +2,8 @@ import ast
 import numpy as np
 import pandas as pd
 
-import utils
-from utils import langs
+from utils import utils
+from utils.utils import langs
 
 corpus_file = utils.RAW_CORPUS_FILE_PATH
 out_file = utils.CORPUS_FILE_PATH

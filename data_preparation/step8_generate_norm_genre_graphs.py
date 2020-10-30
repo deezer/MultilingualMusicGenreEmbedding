@@ -3,7 +3,7 @@ import csv
 import networkx as nx
 from os import listdir
 
-import utils
+from utils import utils
 
 opj = os.path.join
 

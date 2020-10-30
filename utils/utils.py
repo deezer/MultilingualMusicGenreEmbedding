@@ -1,6 +1,7 @@
 import re
 import os
 import ast
+import math
 import pickle
 from collections import Counter
 
@@ -12,25 +13,31 @@ import networkx as nx
 # Relative path of the data dir
 DATA_DIR = 'data/'
 # Relative path of the acousticbrainz taxonomy info dir
-ACOUSTICBRAINZ_DIR = 'data/acousticbrainz/'
+ACOUSTICBRAINZ_DIR = ''.join([DATA_DIR, 'acousticbrainz/'])
 # Relative path of the raw corpus
-RAW_CORPUS_FILE_PATH = 'data/musical_items.csv'
+RAW_CORPUS_FILE_PATH = ''.join([DATA_DIR, 'musical_items.csv'])
 # Relative path of the filtered corpus
-CORPUS_FILE_PATH = 'data/filtered_musical_items.csv'
+CORPUS_FILE_PATH = ''.join([DATA_DIR, 'filtered_musical_items.csv'])
 # Relative path of the filtered graph
-RAW_GRAPH_PATH = 'data/dbp_multigraph.graphml'
+RAW_GRAPH_PATH = ''.join([DATA_DIR, 'dbp_multigraph.graphml'])
 # Relative path of the filtered graph
-GRAPH_PATH = 'data/filtered_dbp_graph.graphml'
+GRAPH_PATH = ''.join([DATA_DIR, '/graphs/filtered_dbp_graph.graphml'])
 # Relative path of the folder containing the data folds
-FOLDS_DIR = 'data/folds/'
+FOLDS_DIR = ''.join([DATA_DIR, 'folds/'])
 # Relative path of the folder containing the data folds
-TRIES_DIR = 'data/tries/'
+TRIES_DIR = ''.join([DATA_DIR, 'tries/'])
 # Relative path of the normalized multilingual genre graph
-NORM_MULTILING_GRAPH_PATH = 'data/norm_multilang.graphml'
+NORM_MULTILING_GRAPH_PATH = ''.join([DATA_DIR, 'graphs/norm_multilang.graphml'])
 # Relative path of the normalized English only genre graph
-NORM_EN_GRAPH_PATH = 'data/norm_acousticbrainz.graphml'
+NORM_EN_GRAPH_PATH = ''.join([DATA_DIR, 'graphs/norm_acousticbrainz.graphml'])
 # Relative path of the aligned fastText embeddings
-ALIGNED_FT_EMB_PATH = 'data/aligned_embeddings/'
+ALIGNED_FT_EMB_PATH = ''.join([DATA_DIR, 'aligned_embeddings/'])
+# Relative path of the acousticbrainz generated embeddings dir
+ACOUSTICBRAINZ_EMBS_DIR = ''.join([DATA_DIR, 'generated_embeddings/acousticbrainz/'])
+# Relative path of the multilingual generated embeddings dir
+MULTILING_EMBS_DIR = ''.join([DATA_DIR, 'generated_embeddings/multilang/'])
+# Relative path of the precomputed ismir2019 baseline translation tables
+ISMIR2019_TRANSLATION_TABLES_DIR = ''.join([DATA_DIR, 'ismir2019baseline/'])
 
 # Graph will be loaded only once and stored here
 GRAPH = None
@@ -332,3 +339,12 @@ def read_translation_table(path, tag_manager=None):
         kb_tr_table = kb_tr_table[tag_manager.mlb_target.classes_]
         kb_tr_table = kb_tr_table.reindex(tag_manager.mlb_sources.classes_)
     return kb_tr_table
+
+
+def truncate(number, digits) -> float:
+    """Truncate a number to a specific number of decimals
+    :param number: the float number
+    :param digits: the number of decimals
+    """
+    stepper = 10.0 ** digits
+    return math.trunc(stepper * number) / stepper

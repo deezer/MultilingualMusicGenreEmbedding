@@ -2,8 +2,10 @@ import os
 import spacy
 import pickle
 
-import utils
-from trie import Trie
+
+from utils import utils
+from utils.trie import Trie
+
 
 opj = os.path.join
 

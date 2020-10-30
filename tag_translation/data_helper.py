@@ -1,6 +1,6 @@
 import pandas as pd
 
-import utils
+from utils import utils
 
 
 class DataHelper:

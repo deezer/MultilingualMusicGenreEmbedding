@@ -9,7 +9,7 @@ from tag_translation.data_helper import DataHelper
 from tag_translation.baseline_translators import GraphDistanceMapper
 from tag_translation.translators import MultilingualEmbsTranslator
 
-import utils
+from utils import utils
 
 opj = os.path.join
 
@@ -35,16 +35,16 @@ if __name__ == "__main__":
     print("The judged was initialized")
 
     translators = {}
-    G = nx.read_graphml('data/graphs/norm_multilang.graphml')
+    G = nx.read_graphml(utils.NORM_MULTILING_GRAPH_PATH)
     translators['baseline'] = GraphDistanceMapper(tm, G, utils.langs)
 
     models = {}
-    models['avg_init'] = "data/generated_embeddings/multilang/avg_initial_embs.csv"
-    models['avg_retro_unweighted'] = "data/generated_embeddings/multilang/avg_retro_unweighted_embs.csv"
-    models['avg_retro_weighted'] = "data/generated_embeddings/multilang/avg_retro_weighted_embs.csv"
-    models['sif_init'] = "data/generated_embeddings/multilang/sif_initial_embs.csv"
-    models['sif_retro_unweighted'] = "data/generated_embeddings/multilang/sif_retro_unweighted_embs.csv"
-    models['sif_retro_weighted'] = "data/generated_embeddings/multilang/sif_retro_weighted_embs.csv"
+    models['avg_init'] = ''.join([utils.MULTILING_EMBS_DIR, "/avg_initial_embs.csv"])
+    models['avg_retro_unweighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/avg_retro_unweighted_embs.csv"])
+    models['avg_retro_weighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/avg_retro_weighted_embs.csv"])
+    models['sif_init'] = ''.join([utils.MULTILING_EMBS_DIR, "/sif_initial_embs.csv"])
+    models['sif_retro_unweighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/sif_retro_unweighted_embs.csv"])
+    models['sif_retro_weighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/sif_retro_weighted_embs.csv"])
     for k in models:
         print("Initializing model", k)
         translators[k] = MultilingualEmbsTranslator(tm, models[k], utils.langs)
@@ -60,8 +60,8 @@ if __name__ == "__main__":
             eval_target = eval_target.astype("float32")
             print("Computing KB results for fold {}".format(fold))
             res = judge.compute_macro_metrics(eval_target, tr.predict_scores(eval_data))
-            print(res)
+            print('auc_macro', utils.truncate(res * 100, 1))
             results.append(res)
-        print('mean ', np.mean(results))
-        print('std ', np.std(results))
+        print('auc_macro mean', utils.truncate(np.mean(results) * 100, 1))
+        print('auc_macro std', utils.truncate(np.std(results) * 100, 1))
 

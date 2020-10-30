@@ -1,7 +1,5 @@
 from sklearn.preprocessing import MultiLabelBinarizer
 
-import utils
-
 
 class TagManager:
     """ Tag Manager class used for normalizing tags and preparing multilabelbinarizer objects used in evaluation"""

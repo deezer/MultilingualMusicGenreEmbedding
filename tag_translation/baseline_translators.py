@@ -1,9 +1,11 @@
+import sys
 import numpy as np
 import networkx as nx
 
-from utils import read_translation_table, load_trie
+from utils.utils import read_translation_table, load_trie
 from tag_translation.base_translator import Translator
-
+from utils import trie
+sys.modules['trie'] = trie
 
 class DbpMappingTranslator(Translator):
     """ Baseline translator used in the English-language experiment with the AcousticBrainz data

@@ -4,8 +4,8 @@ import uuid
 from string import Template
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-import utils
-from utils import langs
+from utils import utils
+from utils.utils import langs
 
 opj = os.path.join
 

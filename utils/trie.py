@@ -1,6 +1,6 @@
 class TrieNode(object):
     """
-    Trie Node
+    Trie Node class
     """
 
     def __init__(self, char):
