@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import networkx as nx
 
-from utils import utils
+from mmge.utils import utils
 
 opj = os.path.join
 graph_file = utils.RAW_GRAPH_PATH

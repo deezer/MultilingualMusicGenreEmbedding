@@ -4,8 +4,13 @@ import numpy as np
 import pandas as pd
 from sklearn.decomposition import TruncatedSVD
 
-import utils
+from mmge.utils import utils
+from mmge.utils import trie
+from mmge.tag_translation.tag_manager import TagManager
 from retrofit_identity import retrofit_identity
+
+
+sys.modules['trie'] = trie
 
 opj = os.path.join
 
@@ -114,7 +119,7 @@ def generate_initial_embs(emb_type):
     known = {}
     for g in G.nodes:
         lang = g[:2]
-        norm_g = utils.TagManager.normalize_tag_wtokenization(g, tries[lang], prefixed=True)
+        norm_g = TagManager.normalize_tag_wtokenization(g, tries[lang], prefixed=True)
         if emb_type == 'avg':
             embs[g], known[g] = _get_emb_avg(norm_g, lang)
         else:

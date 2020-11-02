@@ -35,7 +35,7 @@ ALIGNED_FT_EMB_PATH = ''.join([DATA_DIR, 'aligned_embeddings/'])
 # Relative path of the acousticbrainz generated embeddings dir
 ACOUSTICBRAINZ_EMBS_DIR = ''.join([DATA_DIR, 'generated_embeddings/acousticbrainz/'])
 # Relative path of the multilingual generated embeddings dir
-MULTILING_EMBS_DIR = ''.join([DATA_DIR, 'generated_embeddings/multilang/'])
+MULTILING_EMBS_DIR = ''.join([DATA_DIR, 'generated_embeddings/multilingual/'])
 # Relative path of the precomputed ismir2019 baseline translation tables
 ISMIR2019_TRANSLATION_TABLES_DIR = ''.join([DATA_DIR, 'ismir2019baseline/'])
 
@@ -45,9 +45,9 @@ GRAPH = None
 TAG_PER_LANG = None
 
 # Languages supported
-langs = ['en', 'fr', 'es']
+langs = ['en', 'es', 'fr']
 # Strategies to compute multi-word expression embeddings from word embeddings
-emb_composition_types = ['avg', 'wavg']
+emb_composition_types = ['avg', 'sif']
 # Strategies in retrofitting; weighted is when edges are treated differently in the retrofitting method depending on their types (see paper)
 retro_emb_types = ['weighted', 'unweighted']
 # DBpedia types of music genre relations

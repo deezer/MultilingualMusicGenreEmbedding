@@ -3,7 +3,8 @@ import csv
 import networkx as nx
 from os import listdir
 
-from utils import utils
+from mmge.utils import utils
+from mmge.tag_translation.tag_manager import TagManager
 
 opj = os.path.join
 
@@ -24,7 +25,7 @@ def init_graph_from_DBpedia(G, langs, lemma_tries):
         lang = genre[:2]
         if lang not in langs:
             continue
-        norm_genre = utils.TagManager.normalize_tag_wtokenization(genre, lemma_tries[lang], prefixed=True, asList=False)
+        norm_genre = TagManager.normalize_tag_wtokenization(genre, lemma_tries[lang], prefixed=True, asList=False)
         norm_genre = ''.join([lang, ":", norm_genre])
         newG.add_node(norm_genre)
         norm_nodes[genre] = norm_genre
@@ -52,11 +53,11 @@ def update_graph_with_acbrainztaxs(G, acbrainz_dir, lemma_tries):
                     line_count += 1
                     continue
                 genres = row[0].split('---')
-                norm_g1 = 'en:' + utils.TagManager.normalize_tag_wtokenization(genres[0], lemma_tries[lang], prefixed=False, asList=False)
+                norm_g1 = 'en:' + TagManager.normalize_tag_wtokenization(genres[0], lemma_tries[lang], prefixed=False, asList=False)
                 if len(genres) == 1:
                     G.add_node(norm_g1)
                 else:
-                    norm_g2 = 'en:' + utils.TagManager.normalize_tag_wtokenization(genres[1], lemma_tries[lang], prefixed=False, asList=False)
+                    norm_g2 = 'en:' + TagManager.normalize_tag_wtokenization(genres[1], lemma_tries[lang], prefixed=False, asList=False)
                     G.add_edge(norm_g2, norm_g1, type='musicSubgenre')
                     print(norm_g1, norm_g2)
     return G

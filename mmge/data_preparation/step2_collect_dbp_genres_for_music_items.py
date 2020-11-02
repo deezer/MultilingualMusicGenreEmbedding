@@ -3,8 +3,8 @@ import pandas as pd
 from string import Template
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-from utils import utils
-from utils.utils import langs
+from mmge.utils import utils
+from mmge.utils.utils import langs
 
 opj = os.path.join
 
@@ -92,7 +92,11 @@ query_template_genre = Template("""SELECT ?entity, ?genre
 # Collect music genres for the DBpedia music items
 entities_with_genres = {}
 for lang in langs:
-    entities_with_genres[lang] = get_genres_for_entities(list(ent_per_lang[lang]), query_template_genre, lang, ent_ids)
+    try:
+        entities_with_genres[lang] = get_genres_for_entities(list(ent_per_lang[lang]), query_template_genre, lang, ent_ids)
+    except Exception as ex:
+        print('An exception was encountered when querying DBpedia in', lang)
+        print(ex)
 
 # Save the corpus
 create_and_save_df(entities_with_genres)

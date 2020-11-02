@@ -3,8 +3,9 @@ import spacy
 import pickle
 
 
-from utils import utils
-from utils.trie import Trie
+from mmge.utils import utils
+from mmge.utils.trie import Trie
+from mmge.tag_translation.tag_manager import TagManager
 
 
 opj = os.path.join
@@ -40,7 +41,7 @@ for lang in utils.langs:
     norm_genre_words[lang] = set()
     tags = utils.get_tags_for_source(lang)
     for tag in tags:
-        norm_genre_words[lang].update(utils.TagManager.normalize_tag(tag, prefixed=True, asList=True))
+        norm_genre_words[lang].update(TagManager.normalize_tag(tag, prefixed=True, asList=True))
 print(norm_genre_words)
 
 # Create trie per language

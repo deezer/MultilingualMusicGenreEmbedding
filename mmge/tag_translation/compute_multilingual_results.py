@@ -41,12 +41,12 @@ if __name__ == "__main__":
     translators['baseline'] = GraphDistanceMapper(tm, G, utils.langs)
 
     models = {}
-    models['avg_init'] = ''.join([utils.MULTILING_EMBS_DIR, "/avg_initial_embs.csv"])
-    models['avg_retro_unweighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/avg_retro_unweighted_embs.csv"])
-    models['avg_retro_weighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/avg_retro_weighted_embs.csv"])
-    models['sif_init'] = ''.join([utils.MULTILING_EMBS_DIR, "/sif_initial_embs.csv"])
-    models['sif_retro_unweighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/sif_retro_unweighted_embs.csv"])
-    models['sif_retro_weighted'] = ''.join([utils.MULTILING_EMBS_DIR, "/sif_retro_weighted_embs.csv"])
+    models['avg_init'] = ''.join([utils.MULTILING_EMBS_DIR, "avg_initial_embs.csv"])
+    models['avg_retro_unweighted'] = ''.join([utils.MULTILING_EMBS_DIR, "avg_retro_unweighted_embs.csv"])
+    models['avg_retro_weighted'] = ''.join([utils.MULTILING_EMBS_DIR, "avg_retro_weighted_embs.csv"])
+    models['sif_init'] = ''.join([utils.MULTILING_EMBS_DIR, "sif_initial_embs.csv"])
+    models['sif_retro_unweighted'] = ''.join([utils.MULTILING_EMBS_DIR, "sif_retro_unweighted_embs.csv"])
+    models['sif_retro_weighted'] = ''.join([utils.MULTILING_EMBS_DIR, "sif_retro_weighted_embs.csv"])
     for k in models:
         print("Initializing model", k)
         translators[k] = MultilingualEmbsTranslator(tm, models[k], utils.langs)

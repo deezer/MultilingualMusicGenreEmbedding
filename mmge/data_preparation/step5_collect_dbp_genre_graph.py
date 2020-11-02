@@ -6,8 +6,8 @@ import networkx as nx
 import pandas as pd
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-from utils import utils
-from utils.utils import langs
+from mmge.utils import utils
+from mmge.utils.utils import langs
 
 opj = os.path.join
 

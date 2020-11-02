@@ -4,8 +4,8 @@ import uuid
 from string import Template
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-from utils import utils
-from utils.utils import langs
+from mmge.utils import utils
+from mmge.utils.utils import langs
 
 opj = os.path.join
 
@@ -96,7 +96,11 @@ query_template = Template("""SELECT ?entity, ?alias{{
             LIMIT 10000""")
 
 for lang in langs:
-    get_relevant_music_entities(query_template, lang)
+    try:
+        get_relevant_music_entities(query_template, lang)
+    except Exception as ex:
+        print('An exception was encountered when querying DBpedia in', lang)
+        print(ex)
 
 # Save DBpedia entities
 # First their DBpedia URLs per language that is used for getting their genres

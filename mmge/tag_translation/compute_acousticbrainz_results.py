@@ -1,14 +1,13 @@
 import os
 import numpy as np
 
-from tag_translation.judge import Judge
-from tag_translation.tag_manager import TagManager
-from tag_translation.data_helper import DataHelper
+from judge import Judge
+from tag_manager import TagManager
+from data_helper import DataHelper
+from baseline_translators import DbpMappingTranslator
+from translators import EnglishLangEmbsTranslator
 
-from tag_translation.baseline_translators import DbpMappingTranslator
-from tag_translation.translators import EnglishLangEmbsTranslator
-
-from utils import utils
+from mmge.utils import utils
 
 
 if __name__ == "__main__":

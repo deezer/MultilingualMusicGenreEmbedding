@@ -5,8 +5,8 @@ from ast import literal_eval
 from sklearn.utils import check_random_state
 from sklearn.preprocessing import MultiLabelBinarizer
 
-from utils import utils
-from utils.utils import langs
+from mmge.utils import utils
+from mmge.utils.utils import langs
 
 
 def filter_data(df, target, sources):
