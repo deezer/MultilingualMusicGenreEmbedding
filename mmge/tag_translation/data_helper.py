@@ -1,6 +1,6 @@
 import pandas as pd
 
-from utils import utils
+from mmge.utils import utils
 
 
 class DataHelper:

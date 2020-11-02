@@ -11,7 +11,7 @@ import networkx as nx
 
 
 # Relative path of the data dir
-DATA_DIR = 'data/'
+DATA_DIR = '../../data/'
 # Relative path of the acousticbrainz taxonomy info dir
 ACOUSTICBRAINZ_DIR = ''.join([DATA_DIR, 'acousticbrainz/'])
 # Relative path of the raw corpus

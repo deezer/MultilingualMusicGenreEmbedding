@@ -2,19 +2,21 @@ import os
 import numpy as np
 import networkx as nx
 
-from tag_translation.judge import Judge
-from tag_translation.tag_manager import TagManager
-from tag_translation.data_helper import DataHelper
+from judge import Judge
+from tag_manager import TagManager
+from data_helper import DataHelper
+from baseline_translators import GraphDistanceMapper
+from translators import MultilingualEmbsTranslator
 
-from tag_translation.baseline_translators import GraphDistanceMapper
-from tag_translation.translators import MultilingualEmbsTranslator
-
-from utils import utils
+from mmge.utils import utils
 
 opj = os.path.join
 
 
 if __name__ == "__main__":
+    from datetime import datetime
+    startTime = datetime.now()
+
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--target", required=True)
@@ -65,3 +67,4 @@ if __name__ == "__main__":
         print('auc_macro mean', utils.truncate(np.mean(results) * 100, 1))
         print('auc_macro std', utils.truncate(np.std(results) * 100, 1))
 
+    print(datetime.now() - startTime)

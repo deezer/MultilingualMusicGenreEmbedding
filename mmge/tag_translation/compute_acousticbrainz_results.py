@@ -12,6 +12,9 @@ from utils import utils
 
 
 if __name__ == "__main__":
+    from datetime import datetime
+    startTime = datetime.now()
+
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--target", required=True)
@@ -58,3 +61,5 @@ if __name__ == "__main__":
             results.append(res)
         print('auc_macro mean', utils.truncate(np.mean(results) * 100, 1))
         print('auc_macro std', utils.truncate(np.std(results) * 100, 1))
+
+    print(datetime.now() - startTime)
