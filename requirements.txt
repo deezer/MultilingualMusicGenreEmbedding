@@ -1,8 +1,0 @@
-numpy==1.17.2
-pandas==0.25.1
-sklearn==0.0
-networkx==2.2
-joblib==0.13.2
-torch==1.4.0
-SPARQLWrapper==1.8.4
-
