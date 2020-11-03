@@ -5,7 +5,7 @@ import networkx as nx
 from os import listdir
 
 from mmge.utils import utils
-from mmge.tag_translation.tag_manager import TagManager
+from mmge.utils.tag_manager import TagManager
 from mmge.utils import trie
 sys.modules['trie'] = trie
 
@@ -56,13 +56,13 @@ def update_graph_with_acbrainztaxs(G, acbrainz_dir, lemma_tries):
                     line_count += 1
                     continue
                 genres = row[0].split('---')
-                norm_g1 = 'en:' + TagManager.normalize_tag_wtokenization(genres[0], lemma_tries[lang], prefixed=False, asList=False)
+                norm_g1 = 'en:' + TagManager.normalize_tag_wtokenization(genres[0], lemma_tries['en'], prefixed=False, asList=False)
                 if len(genres) == 1:
                     G.add_node(norm_g1)
                 else:
-                    norm_g2 = 'en:' + TagManager.normalize_tag_wtokenization(genres[1], lemma_tries[lang], prefixed=False, asList=False)
+                    norm_g2 = 'en:' + TagManager.normalize_tag_wtokenization(genres[1], lemma_tries['en'], prefixed=False, asList=False)
                     G.add_edge(norm_g2, norm_g1, type='musicSubgenre')
-                    print(norm_g1, norm_g2)
+                    #print(norm_g1, norm_g2)
     return G
 
 

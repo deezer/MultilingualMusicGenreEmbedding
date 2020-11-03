@@ -3,12 +3,12 @@ import numpy as np
 import networkx as nx
 
 from judge import Judge
-from tag_manager import TagManager
 from data_helper import DataHelper
 from baseline_translators import GraphDistanceMapper
 from translators import MultilingualEmbsTranslator
 
 from mmge.utils import utils
+from mmge.utils.tag_manager import TagManager
 
 opj = os.path.join
 

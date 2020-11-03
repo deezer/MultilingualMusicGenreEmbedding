@@ -6,7 +6,7 @@ from sklearn.decomposition import TruncatedSVD
 
 from mmge.utils import utils
 from mmge.utils import trie
-from mmge.tag_translation.tag_manager import TagManager
+from mmge.utils.tag_manager import TagManager
 from retrofit_identity import retrofit_identity
 
 
@@ -145,7 +145,7 @@ def get_undirected_edges(mapping, G):
         for g in G.nodes:
             edges[et][mapping[g]] = []
     for s, t, meta in G.edges(data=True):
-        print(s, t)
+        #print(s, t)
         edges[meta['type']][mapping[s]].append(mapping[t])
         edges[meta['type']][mapping[t]].append(mapping[s])
     return edges

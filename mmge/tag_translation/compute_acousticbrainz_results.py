@@ -2,12 +2,12 @@ import os
 import numpy as np
 
 from judge import Judge
-from tag_manager import TagManager
 from data_helper import DataHelper
 from baseline_translators import DbpMappingTranslator
 from translators import EnglishLangEmbsTranslator
 
 from mmge.utils import utils
+from mmge.utils.tag_manager import TagManager
 
 
 if __name__ == "__main__":

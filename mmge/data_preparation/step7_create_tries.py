@@ -5,7 +5,7 @@ import pickle
 
 from mmge.utils import utils
 from mmge.utils.trie import Trie
-from mmge.tag_translation.tag_manager import TagManager
+from mmge.utils.tag_manager import TagManager
 
 
 opj = os.path.join
