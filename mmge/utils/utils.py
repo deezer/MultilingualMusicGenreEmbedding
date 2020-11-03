@@ -21,7 +21,7 @@ CORPUS_FILE_PATH = ''.join([DATA_DIR, 'filtered_musical_items.csv'])
 # Relative path of the filtered graph
 RAW_GRAPH_PATH = ''.join([DATA_DIR, 'dbp_multigraph.graphml'])
 # Relative path of the filtered graph
-GRAPH_PATH = ''.join([DATA_DIR, 'graphs/filtered_dbp_graph.graphml'])
+GRAPH_PATH = ''.join([DATA_DIR, 'filtered_dbp_graph.graphml'])
 # Relative path of the folder containing the data folds
 FOLDS_DIR = ''.join([DATA_DIR, 'folds/'])
 # Relative path of the folder containing the data folds

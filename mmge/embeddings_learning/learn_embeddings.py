@@ -126,7 +126,7 @@ def generate_initial_embs(emb_type):
             embs[g], known[g] = _get_emb_wavg(norm_g, lang)
 
     embs = pd.DataFrame(embs).T  # the embeddings are columns
-    if emb_type == 'wavg':  # the algorithm imposes a normalization
+    if emb_type == 'sif':  # the algorithm imposes a normalization
         norm_embs = _remove_pc(embs.to_numpy())
         embs = pd.DataFrame(norm_embs, columns=embs.columns, index=embs.index)
     return embs, known
@@ -204,7 +204,7 @@ if __name__ == '__main__':
     models = {}
     emb_dims = {}
     for lang in langs:
-        models[lang], emb_dims[lang]  = utils.read_embeddings(opj(utils.ALIGNED_FT_EMB_PATH, 'wiki.' + lang + '.align.vec'))
+        models[lang], emb_dims[lang]  = utils.read_embeddings(opj(utils.ALIGNED_FT_EMB_PATH, ''.join(['cc.', lang, '-en.vec'])))
         print(lang, ' loaded')
 
     # Estimate word frequencies

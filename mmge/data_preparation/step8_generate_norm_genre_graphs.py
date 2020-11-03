@@ -1,10 +1,13 @@
 import os
 import csv
+import sys
 import networkx as nx
 from os import listdir
 
 from mmge.utils import utils
 from mmge.tag_translation.tag_manager import TagManager
+from mmge.utils import trie
+sys.modules['trie'] = trie
 
 opj = os.path.join
 
@@ -69,6 +72,13 @@ G = utils.get_graph()
 lemma_tries = {}
 for lang in utils.langs:
     lemma_tries[lang] = utils.load_trie(lang)
+
+out_dir = ''.join([utils.DATA_DIR, 'graphs/'])
+if not os.path.exists(out_dir):
+    os.mkdir(out_dir)
+    print("Directory ", out_dir, " Created ")
+else:
+    print("Directory ", out_dir, " already exists")
 
 # Create normalized multilingual graph and save it
 norm_multiling_graph = init_graph_from_DBpedia(G, utils.langs, lemma_tries)
