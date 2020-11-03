@@ -1,3 +1,10 @@
 .DS_Store
-*/__pycache__/*
+__pycache__
 data
+build/
+ismir_data/
+dist/
+mmge.egg-info/
+mmge/data_preparation/__pycache__/
+mmge/embeddings_learning/__pycache__/
+mmge/tag_translation/__pycache__/
