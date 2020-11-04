@@ -23,7 +23,7 @@ python setup.py install
 Requirements: numpy, pandas, sklearn, networkx, joblib, torch, SPARQLWrapper.
 
 ## Reproduce published results
-In this section, we explain how to reproduce the results reported in *Table 3* and *Table 4* of the article.
+We further explain how to reproduce the results reported in *Table 3* and *Table 4* of the article.
 
 ### Download data
 Data collected from DBpedia, namely the parallel corpus and music genre graph, could change over time. Consequently, we provide for download the version used in the paper experiments. We also include the pre-computed music genre embeddings. More details about how to prepare the data and learn embeddings from scratch can be found in [Data preparation](#data-preparation) and [Music genre embedding](#music-genre-embedding) respectively.
