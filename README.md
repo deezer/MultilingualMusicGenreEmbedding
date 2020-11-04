@@ -3,9 +3,9 @@
 This repository provides Python code to reproduce the cross-lingual music genre translation experiments presented in the article **Multilingual Music Genre Embeddings for Effective Cross-Lingual Music Item Annotation** (published in the [ISMIR 2020](https://ismir.github.io/ISMIR2020/) conference).
 
 The projects consists of three parts:
-- `mmge/data_preparation`: collect and prepare data required for learning music genre embeddings and for evaluation.
-- `mmge/embeddings_learning`: learn English-language only or multilingual music genre embeddings.
-- `mmge/tag_translation`: perform and evaluate cross-source English-language only and cross-lingual music genre translation.
+- `mmge/data_preparation`: collect and prepare data required for learning music genre embeddings and for evaluation (see (Data preparation)[#data-preparation] for more details).
+- `mmge/embeddings_learning`: learn English-language only or multilingual music genre embeddings (see (Music genre embedding)[#music-genre-embedding] for more details).
+- `mmge/tag_translation`: perform and evaluate cross-source English-language only and cross-lingual music genre translation (see (Music genre translation)[#music-genre-translation] for more details).
 
 For the cross-source English-language only music genre translation, we compare the translation using the new embeddings with the baseline proposed in our [ISMIR 2018 publication](https://github.com/deezer/MusicGenreTranslation), *Leveraging knowledge bases and parallel annotations for music genre translation*.
 
