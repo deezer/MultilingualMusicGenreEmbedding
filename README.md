@@ -146,7 +146,7 @@ However, we should still reach the same conclusions as presented in the paper:
 - Exploiting the semantics of the music genre graph edges leads to marginally improved results w.r.t. the
 original retrofitting in the English-language multi-source translation and significantly higher macro-AUC scores in the
 cross-lingual translation.
-- The initialization with smooth inverse frequency (*sif*) averaging yields better translations than the initialization based on the common average (*avg*).
+- The initialization with smooth inverse frequency (*sif*) averaging yields better translations than the initialization with the common average (*avg*).
 - We outperform the baselines by large margins in both experiments.
 
 # Cite
