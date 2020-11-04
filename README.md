@@ -28,11 +28,12 @@ We further explain how to reproduce the results reported in *Table 3* and *Table
 ### Download data
 Data collected from DBpedia, namely the parallel corpus and music genre graph, could change over time. Consequently, we provide for download the version used in the paper experiments. We also include the pre-computed music genre embeddings. More details about how to prepare the data and learn embeddings from scratch can be found in [Data preparation](#data-preparation) and [Music genre embedding](#music-genre-embedding) respectively.
 
-For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous work [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed translation tables required by the baseline translator. For more information about how these tables are generated, please consult [this git repository](https://github.com/deezer/MusicGenreTranslation).
+For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous work [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed distance tables required by the baseline translator. For more information about how these tables are generated, please consult [this git repository](https://github.com/deezer/MusicGenreTranslation).
 
 The data is available [for download on Zenodo](). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
 
 The `data` folder contains the following data:
+- `acousticbrainz`: the English-language music genre taxonomies released in the [MediaEval 2018 AcousticBrainz Genre Task](https://mtg.github.io/acousticbrainz-genre-dataset/data/).
 - `[fr|es|en]_entities.txt`: music artists, works and bands from DBpedia in the language identified by the code.
 - `musical_items_ids.csv`: mapping of DBpedia-based music items on unique identifiers.
 - `filtered_musical_items.csv`: the multilingual parallel corpus containing DBpedia-based music items with music genre annotations in at least two languagues. This corpus has been filtered by removing music genres which did not appear at least 16 times (to ensure that each music genre appears 4 times in each of the 4 folds).
