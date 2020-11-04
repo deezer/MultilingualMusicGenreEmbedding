@@ -7,7 +7,7 @@ The projects consists of three parts:
 - `mmge/embeddings_learning`: learn English-language only or multilingual music genre embeddings (see [Music genre embedding](#music-genre-embedding) for more details).
 - `mmge/tag_translation`: perform and evaluate cross-source English-language only and cross-lingual music genre translation (see [Music genre translation](#music-genre-translation) for more details).
 
-We currently support three languages in the cross-lingual music genre translation,:
+We currently support three languages:
 - :gb: English (en)
 - :fr: French (fr)
 - :es: Spanish (es)
