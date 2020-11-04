@@ -53,6 +53,7 @@ The target language / source is explicitly specified through the argument `--tar
 
 #### Step 1: collect artists, bands and music works from DBpedia
 ```bash
+cd mmge/data_preparation
 python data_preparation/step1_collect_dbp_music_items.py
 ```
 
