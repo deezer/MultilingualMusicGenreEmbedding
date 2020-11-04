@@ -40,7 +40,7 @@ The `data` folder contains the following data:
 - `folds`: the parallel corpus split in 4 folds in a stratified way for each source / language as target.
 - `tries`: deserialized `Trie` (`mmge/utils/trie.py`) objects for each language.
 - `graphs`: graphs with normalized tags as nodes for each experiment, English-language only and multilingual.
-- `generated_embeddings`: generated embeddings foe each of the two experiments, English-language only and multilingual. The embeddings are learned with varied strategies to initialize the music genre embeddings and with different retrofitting versions.
+- `generated_embeddings`: English-language only and multilingual music genre embeddings learned with various strategies to initialize the embeddings and retrofitting versions.
 - `ismir2019baseline`:
 
 ### Experiments
