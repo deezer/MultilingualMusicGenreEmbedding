@@ -33,7 +33,7 @@ For the cross-source English-language music genre translation, we rely on the sa
 The data is available [for download on Zenodo](). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
 
 The `data` folder contains the following data:
-- `[fr|es|en]_entities.txt`: music artists, works and bands from DBpedia in the respective language identified by its code.
+- `[fr|es|en]_entities.txt`: music artists, works and bands from DBpedia in the language identified by the code.
 - `musical_items_ids.csv`: mapping of DBpedia-based music items on unique identifiers.
 - `filtered_musical_items.csv`: the parallel corpus containing DBpedia-based music items with music genre annotations in at least two languagues. This corpus has been filtered, by removing the music genres which did not appear at least 16 times (as we split the data in 4 stratified folds, we ensure that each music genre appears 4 times per fold).
 - `filtered_dbp_graph.graphml`:
