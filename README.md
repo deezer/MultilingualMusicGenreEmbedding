@@ -58,7 +58,8 @@ The target language / source is explicitly specified through the argument `--tar
 
 The experiments should be run in the same way as for reproducing the published results (see [Experiments](###experiments) above).
 
-The macro-AUC scores may not be identical to the ones reported in the paper because the data collected from DBpedia could change in time. For instance, new musical artists, works or bands could appear in DBpedia or some of the past ones could be removed. The annotations of musical items with music genres could be changed too. Hence, this has an impact on the parallel corpus. Additionally, the music genre graph could change when music genres or music genre relations being added to or removed from DBpedia.
+The macro-AUC scores may not be identical to the ones reported in the paper because the data collected from DBpedia could change in time. For instance, new musical artists, works or bands could appear in DBpedia or some of the past ones could be removed. The annotations of musical items with music genres could be changed too. Hence, these have an impact on the parallel corpus.
+Additionally, the music genre graph could change too when music genres or music genre relations are added to or removed from DBpedia.
 
 However, we should still reach the same conclusions as presented in the paper:
 - Exploiting the semantics of the music genre graph edges leads to marginally improved results w.r.t. the
