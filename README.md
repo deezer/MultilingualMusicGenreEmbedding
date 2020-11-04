@@ -129,12 +129,6 @@ python embeddings_learning/learn_multilingual_embeddings.py multilingual
 python embeddings_learning/learn_multilingual_embeddings.py acousticbrainz
 ```
 
-*Step 5* - generate English-language only music genre embeddings with multiple strategies (see paper)
-(DBpedia + AcousticBrainz taxonomies)
-```
-python embeddings_learning/learn_multilingual_embeddings.py multilingual
-```
-
 ### Music genre translation
 
 The experiments should be run in the same way as for reproducing the published results (see [Experiments](#experiments) above).
