@@ -28,7 +28,7 @@ In this section, we explain how to reproduce the results reported in *Table 3* a
 ### Download data
 Data collected from DBpedia, namely the parallel corpus and music genre graph, could change over time. Consequently, we provide for download the version used in the paper experiments. We also include the pre-computed music genre embeddings. More details about how to prepare the data and learn embeddings from scratch can be found in [Data preparation](#data-preparation) and [Music genre embedding](#music-genre-embedding) respectively.
 
-For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous works [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed translation tables required by the baseline translator. For more information about how these tables are generated, please consult the [git repository](https://github.com/deezer/MusicGenreTranslation) of our previous work.
+For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous work [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed translation tables required by the baseline translator. For more information about how these tables are generated, please consult this [git repository](https://github.com/deezer/MusicGenreTranslation).
 
 The data is available [for download on Zenodo](). After download, the folder `data` should be place in the root folder containing the cloned code.
 
