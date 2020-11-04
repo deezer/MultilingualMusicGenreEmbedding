@@ -1,6 +1,6 @@
 # Multilingual Music Genre Embeddings for Effective Cross-Lingual Music Item Annotation
 
-This repository provides Python code to reproduce the cross-lingual music genre translation experiments presented in the article **Multilingual Music Genre Embeddings for Effective Cross-Lingual Music Item Annotation** ([ISMIR 2020](https://ismir.github.io/ISMIR2020/) conference).
+This repository provides Python code to reproduce the cross-lingual music genre translation experiments presented in the article **Multilingual Music Genre Embeddings for Effective Cross-Lingual Music Item Annotation** (published in the [ISMIR 2020](https://ismir.github.io/ISMIR2020/) conference).
 
 The projects consists of three parts:
 - `mmge/data_preparation`: collect and prepare data required for learning music genre embeddings and for evaluation.
