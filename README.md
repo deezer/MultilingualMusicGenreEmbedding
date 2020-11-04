@@ -10,9 +10,9 @@ The projects consists of three parts:
 For the cross-source English-language only music genre translation, we compare the translation using the new embeddings with the baseline proposed in our [ISMIR 2018 publication](https://github.com/deezer/MusicGenreTranslation), *Leveraging knowledge bases and parallel annotations for music genre translation*.
 
 For the cross-lingual music genre translation, we currently support three languages:
-- :gb: English (en),
-- :fr: French (fr),
-- :es: Spanish (es).
+- :gb: English (en)
+- :fr: French (fr)
+- :es: Spanish (es)
 
 ## Installation
 
