@@ -7,9 +7,12 @@ The projects consists of three parts:
 - `mmge/embeddings_learning`: learn English-language only or multilingual music genre embeddings.
 - `mmge/tag_translation`: perform and evaluate cross-source English-language only and cross-lingual music genre translation.
 
-For the cross-source English-language only music genre translation, we compare the translation using the new embeddings with the baseline proposed in our [ISMIR 2018 publication](https://github.com/deezer/MusicGenreTranslation), *Leveraging knowledge bases and parallel annotations for music genre translation*).
+For the cross-source English-language only music genre translation, we compare the translation using the new embeddings with the baseline proposed in our [ISMIR 2018 publication](https://github.com/deezer/MusicGenreTranslation), *Leveraging knowledge bases and parallel annotations for music genre translation*.
 
-For the cross-lingual music genre translation, we currently support three languages: :gb: English, :fr: French and :es: Spanish.
+For the cross-lingual music genre translation, we currently support three languages:
+- :gb: English,
+- :fr: French,
+- :es: Spanish.
 
 ## Installation
 
