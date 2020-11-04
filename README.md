@@ -5,7 +5,7 @@ This repository provides Python code to reproduce the cross-lingual music genre 
 The projects consists of three parts:
 - `mmge/data_preparation`: collect and prepare data required for learning music genre embeddings and for evaluation.
 - `mmge/embeddings_learning`: learn English-language only or multilingual music genre embeddings.
-- `mmge/tag_translation`: reproduce translation experiments with multi-source English-language only music genres (see our [ISMIR 2018](https://github.com/deezer/MusicGenreTranslation) publication, *Leveraging knowledge bases and parallel annotations for music genre translation*, for more details) or with multilingual music genres (currently, three languages are supported :en: English, :fr: French and :es: Spanish).
+- `mmge/tag_translation`: reproduce translation experiments with multi-source English-language only music genres (for more details see our [ISMIR 2018](https://github.com/deezer/MusicGenreTranslation) publication, *Leveraging knowledge bases and parallel annotations for music genre translation*) or with multilingual music genres (currently, three languages are supported :gb: English, :fr: French and :es: Spanish).
 
 ## Installation
 
