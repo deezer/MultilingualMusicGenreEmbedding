@@ -33,7 +33,7 @@ For the cross-source English-language music genre translation, we rely on the sa
 The data is available [for download on Zenodo](). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
 
 The `data` folder contains the following data:
-- `[la]_entities.txt`:
+- `[fr|es|en]_entities.txt`:
 - `musical_items_ids.csv`:
 - `filtered_musical_items.csv`:
 - `filtered_dbp_graph.graphml`:
