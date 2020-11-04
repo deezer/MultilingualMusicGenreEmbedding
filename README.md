@@ -5,7 +5,7 @@ This repository provides Python code to reproduce the cross-lingual music genre 
 The projects consists of three parts:
 - `mmge/data_preparation`: collect and prepare data required for learning music genre embeddings and for evaluation (see [Data preparation](#data-preparation) for more details).
 - `mmge/embeddings_learning`: learn English-language only or multilingual music genre embeddings (see [Music genre embedding](#music-genre-embedding) for more details).
-- `mmge/tag_translation`: perform and evaluate cross-source English-language only and cross-lingual music genre translation (see [Music genre translation](#music-genre-translation) for more details).
+- `mmge/tag_translation`: perform and evaluate cross-source English-language only or cross-lingual music genre translation (see [Music genre translation](#music-genre-translation) for more details).
 
 We currently support three languages:
 - :gb: English (en)
@@ -36,12 +36,12 @@ The `data` folder contains the following data:
 - `[fr|es|en]_entities.txt`: music artists, works and bands from DBpedia in the language identified by the code.
 - `musical_items_ids.csv`: mapping of DBpedia-based music items on unique identifiers.
 - `filtered_musical_items.csv`: the multilingual parallel corpus containing DBpedia-based music items with music genre annotations in at least two languagues. This corpus has been filtered by removing music genres which did not appear at least 16 times (to ensure that each music genre appears 4 times in each of the 4 folds).
-- `filtered_dbp_graph.graphml`: the multilingual DBpedia-based music genre graph in a cleaned version (see cleaning actions in `mmge/data_preparation/step6_clean_dbp_graph.py`).
+- `filtered_dbp_graph.graphml`: the multilingual DBpedia-based music genre graph in a cleaned version; the tags that were not recognized as proper DBpedia resources and the connected components that did not contain at least a corpus music genre were removed.
 - `folds`: the parallel corpus split in 4 folds in a stratified way for each source / language as target.
-- `tries`: deserialized `Trie` (`mmge/utils/trie.py`) objects for each language.
+- `tries`: deserialized `Trie` (`mmge/utils/trie.py`) objects for each language created from vocabularies extracted from DBpedia music genre tags.
 - `graphs`: graphs with normalized tags as nodes for each experiment, English-language only and multilingual.
-- `generated_embeddings`: English-language only and multilingual music genre embeddings learned with various strategies to initialize the embeddings and retrofitting versions.
-- `ismir2019baseline`:
+- `generated_embeddings`: English-language only and multilingual music genre embeddings learned with various strategies to initialize the embeddings and different retrofitting versions.
+- `ismir2019baseline`: pre-computed distance tables to be used by the baseline translator in the cross-source English-language translation experiments.
 
 ### Experiments
 
