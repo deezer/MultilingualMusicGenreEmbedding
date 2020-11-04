@@ -28,9 +28,20 @@ In this section, we explain how to reproduce the results reported in *Table 3* a
 ### Download data
 Data collected from DBpedia, namely the parallel corpus and music genre graph, could change over time. Consequently, we provide for download the version used in the paper experiments. We also include the pre-computed music genre embeddings. More details about how to prepare the data and learn embeddings from scratch can be found in [Data preparation](#data-preparation) and [Music genre embedding](#music-genre-embedding) respectively.
 
-For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous work [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed translation tables required by the baseline translator. For more information about how these tables are generated, please consult this [git repository](https://github.com/deezer/MusicGenreTranslation).
+For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous work [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed translation tables required by the baseline translator. For more information about how these tables are generated, please consult [this git repository](https://github.com/deezer/MusicGenreTranslation).
 
-The data is available [for download on Zenodo](). After download, the folder `data` must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
+The data is available [for download on Zenodo](). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
+
+The `data` folder contains the following data:
+- `[la]_entities.txt`:
+- `musical_items_ids.csv`:
+- `filtered_musical_items.csv`:
+- `filtered_dbp_graph.graphml`:
+- `folds`:
+- `tries`:
+- `graphs`:
+- `generated_embeddings`:
+- `ismir2019baseline`:
 
 ### Experiments
 
