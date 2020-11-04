@@ -137,7 +137,7 @@ The macro-AUC scores may not be identical to the ones reported in the paper beca
 
 Additionally, the music genre graph could also evolve because music genres or music genre relations are added to or removed from DBpedia.
 
-However, we should still reach the same conclusions as presented in the paper:
+However, we should still reach the same conclusions as those presented in the paper:
 - Exploiting the semantics of the music genre graph edges leads to marginally improved results w.r.t. the
 original retrofitting in the English-language multi-source translation and significantly higher macro-AUC scores in the
 cross-lingual translation.
