@@ -96,6 +96,28 @@ Important: make sure that acousticbrainz folder containing the stats files for e
 
 ### Music genre embedding
 
+*Step 1* - download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, French and Spanish.
+
+*Step 2* - align French and Spanish embeddings to the English ones by following [these instructions](https://github.com/facebookresearch/fastText/tree/master/alignment),
+The aligned embeddings should be saved in the folder `data/aligned_embeddings/`
+
+*Step 3* - generate multilingual music genre embeddings with multiple strategies (see paper):
+```
+python embeddings_learning/learn_multilingual_embeddings.py multilingual
+```
+
+*Step 4* - generate English-language only music genre embeddings with multiple strategies (see paper)
+(DBpedia + AcousticBrainz taxonomies)
+```
+python embeddings_learning/learn_multilingual_embeddings.py acousticbrainz
+```
+
+*Step 5* - generate English-language only music genre embeddings with multiple strategies (see paper)
+(DBpedia + AcousticBrainz taxonomies)
+```
+python embeddings_learning/learn_multilingual_embeddings.py multilingual
+```
+
 ### Music genre translation
 
 The experiments should be run in the same way as for reproducing the published results (see [Experiments](#experiments) above).
