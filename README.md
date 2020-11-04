@@ -140,13 +140,13 @@ The experiments should be run in the same way as for reproducing the published r
 
 The macro-AUC scores may not be identical to the ones reported in the paper because DBpedia could change over time. New music artists, works or bands could appear in DBpedia or some of the past ones could be removed. The annotations of music items with music genres could be modified too. Hence, these changes have an impact on the parallel corpus.
 
-Additionally, the music genre graph could also evolve because music genres or music genre relations are added to or removed from DBpedia over time.
+Additionally, the music genre graph could also evolve because music genres or music genre relations are added to or removed from DBpedia.
 
 However, we should still reach the same conclusions as presented in the paper:
 - Exploiting the semantics of the music genre graph edges leads to marginally improved results w.r.t. the
-original retrofitting in the English-language multi-source translation and significantly higher AUC scores in the
+original retrofitting in the English-language multi-source translation and significantly higher macro-AUC scores in the
 cross-lingual translation.
-- The initialization with smooth inverse frequency averaging yields better translations than the initialization based on the common average.
+- The initialization with smooth inverse frequency (*sif*) averaging yields better translations than the initialization based on the common average (*avg*).
 - We outperform the baselines by large margins in both experiments.
 
 # Cite
