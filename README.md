@@ -56,7 +56,7 @@ The target language / source is explicitly specified through the argument `--tar
 
 ### Music genre translation
 
-We run the experiments, in the same way as for reproducing the published results (see above).
+The experiments should be run in the same way as for reproducing the published results (see above).
 
 The macro-AUC scores may not be identical to the ones reported in the paper because the data collected from DBpedia could change in time. For instance, new musical artists, works or bands could appear in DBpedia or some of the past ones could be removed. Hence, this has an impact on the parallel corpus. Then, the annotations of musical items with music genres could be changed too as well asthe music genre graph when adding or removing music genres or music genre relations.
 
