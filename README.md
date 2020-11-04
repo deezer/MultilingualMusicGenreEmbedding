@@ -51,13 +51,56 @@ The target language / source is explicitly specified through the argument `--tar
 
 ### Data preparation
 
+#### Step 1: collect artists, bands and music works from DBpedia
+```bash
+python data_preparation/step1_collect_dbp_music_items.py
+```
+
+#### Step 2: collect the music genres annotations of the previously queried music items
+```bash
+python data_preparation/step2_collect_dbp_genres_for_music_items.py
+```
+
+#### Step 3: filter the corpus by removing music genres that do not appear at least 16 times
+```bash
+python data_preparation/step3_filter_corpus.py
+```
+
+#### Step 4: split corpus in 4 folds for each language
+```bash
+python data_preparation/step4_prepare_folds_eval.py
+```
+
+#### Step 5: collect the multilingual DBpedia music genre graph
+```bash
+python data_preparation/step5_collect_dbp_genre_graph.py
+```
+
+#### Step 6: clean the raw DBpedia graph
+```bash
+python data_preparation/step6_clean_dbp_graph.py
+```
+
+#### Step 7: create tries to tokenize new tags, potentially written without spaces, in DBpedia-based words
+```bash
+python data_preparation/step7_create_tries.py
+```
+
+#### Step 8: Generate normalized undirected genre graphs for the 2 experiments (multilingual and English-language only)
+For the English-language only experiment, create a new music genre graph from the English DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (lastfm, discogs and tagtraum)
+
+Important: make sure that acousticbrainz folder containing the stats files for each taxonomy is downloaded and positioned in the data/ folder (e.g. discogs.csv.stats)
+```bash
+python data_preparation/step8_generate_norm_genre_graphs.py
+```
+
 ### Music genre embedding
 
 ### Music genre translation
 
 The experiments should be run in the same way as for reproducing the published results (see [Experiments](#experiments) above).
 
-The macro-AUC scores may not be identical to the ones reported in the paper because DBpedia could change over time. New musical artists, works or bands could appear in DBpedia or some of the past ones could be removed. The annotations of musical items with music genres could be modified too. Hence, these changes have an impact on the parallel corpus.
+The macro-AUC scores may not be identical to the ones reported in the paper because DBpedia could change over time. New music artists, works or bands could appear in DBpedia or some of the past ones could be removed. The annotations of music items with music genres could be modified too. Hence, these changes have an impact on the parallel corpus.
 
 Additionally, the music genre graph could also evolve because music genres or music genre relations are added to or removed from DBpedia over time.
 
