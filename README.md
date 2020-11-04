@@ -28,7 +28,7 @@ Requirements: numpy, pandas, sklearn, networkx, joblib, torch, SPARQLWrapper.
 
 ### Data
 
-### Music genre translation
+### Experiments
 
 For cross-lingual music genre translation, we have:
 ```bash
@@ -56,13 +56,16 @@ The target language / source is explicitly specified through the argument `--tar
 
 ### Music genre translation
 
-The experiments should be run in the same way as for reproducing the published results (see above).
+The experiments should be run in the same way as for reproducing the published results (see [Experiments](###experiments) above).
 
-The macro-AUC scores may not be identical to the ones reported in the paper because the data collected from DBpedia could change in time. For instance, new musical artists, works or bands could appear in DBpedia or some of the past ones could be removed. The annotations of musical items with music genres could be changed too Hence, this has an impact on the parallel corpus. Then, the music genre graph could change when music genres or music genre relations are added or removed in DBpedia.
+The macro-AUC scores may not be identical to the ones reported in the paper because the data collected from DBpedia could change in time. For instance, new musical artists, works or bands could appear in DBpedia or some of the past ones could be removed. The annotations of musical items with music genres could be changed too. Hence, this has an impact on the parallel corpus. Additionally, the music genre graph could change when music genres or music genre relations being added to or removed from DBpedia.
 
 However, we should still reach the same conclusions as presented in the paper:
-
-
+- Exploiting the semantics of the music genre graph edges leads to marginally improved results w.r.t. the
+original retrofitting in the English-language multi-source translation and significantly higher AUC scores in the
+cross-lingual translation.
+- The sif initialization yields better translations than the avg initialization.
+- We outperform the baselines by large margins in both experiments.
 
 # Cite
 
