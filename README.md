@@ -48,11 +48,11 @@ python compute_acousticbrainz_results.py --target en
 
 The target language / source is explicitly specified through the argument `--target`. The translation then happens from the other two languages / sources to the target.
 
-## Run experiments from scratch
+## Run pipeline from scratch
 
-### Data
+### Data preparation
 
-### Music genre embeddings
+### Music genre embedding
 
 ### Music genre translation
 
