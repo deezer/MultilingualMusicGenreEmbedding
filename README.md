@@ -30,7 +30,7 @@ Data collected from DBpedia, namely the parallel corpus and music genre graph, c
 
 For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous work [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed translation tables required by the baseline translator. For more information about how these tables are generated, please consult this [git repository](https://github.com/deezer/MusicGenreTranslation).
 
-The data is available [for download on Zenodo](). After download, the folder `data` should be place in the root folder containing the cloned code.
+The data is available [for download on Zenodo](). After download, the folder `data` must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
 
 ### Experiments
 
