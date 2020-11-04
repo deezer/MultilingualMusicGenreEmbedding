@@ -57,9 +57,9 @@ python compute_multilingual_results.py --target en
 Evaluate music genre embeddings in cross-source English-language music genre translation (*Table 4* in the paper):
 ```bash
 cd mmge/tag_translation/
-python compute_acousticbrainz_results.py --target fr
-python compute_acousticbrainz_results.py --target es
-python compute_acousticbrainz_results.py --target en
+python compute_acousticbrainz_results.py --target discogs
+python compute_acousticbrainz_results.py --target lastfm
+python compute_acousticbrainz_results.py --target tagtraum
 ```
 
 The target language / source is explicitly specified through the argument `--target`. The translation then happens from the other two languages / sources to the target.
