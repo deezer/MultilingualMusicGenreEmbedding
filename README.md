@@ -46,7 +46,7 @@ The `data` folder contains the following data:
 
 ### Experiments
 
-To evaluate the cross-lingual music genre translation (*Table 3* in the paper), use `compute_multilingual_results.py` as follows:
+Evaluate music genre embeddings in cross-lingual music genre translation (*Table 3* in the paper):
 ```bash
 cd mmge/tag_translation/
 python compute_multilingual_results.py --target fr
@@ -54,7 +54,7 @@ python compute_multilingual_results.py --target es
 python compute_multilingual_results.py --target en
 ```
 
-To evaluate the cross-source English-language music genre translation (*Table 4* in the paper), use `compute_acousticbrainz_results.py` as follows:
+Evaluate music genre embeddings in cross-source English-language music genre translation (*Table 4* in the paper):
 ```bash
 cd mmge/tag_translation/
 python compute_acousticbrainz_results.py --target fr
