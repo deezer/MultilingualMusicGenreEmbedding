@@ -72,7 +72,7 @@ Time    | 4m | 8m | 8m | 1h25m | 1h25m | 1h3m |
 
 ## Run pipeline from scratch
 We further explain how to run the full pipeline from scratch.
-Before starting, multiple resources needed for the evaluation of the English-language only translation baseline should be downloaded from Zenodo (see [Download data](#download-data)) and positioned in the `data` folder: `acousticbrainz`, `ismir2019baseline` and `folds` (only the files `[lastfm|discogs|tagtraum]_4-fold_by_artist.tsv`).
+Before starting, multiple resources needed for the evaluation of the English-language only translation baseline should be downloaded from Zenodo (see [Download data](#download-data)) and positioned in the `data` folder, namely `acousticbrainz`, `ismir2019baseline` and `folds` (only the files `[lastfm|discogs|tagtraum]_4-fold_by_artist.tsv`).
 
 ### Data preparation
 Each step uses the output of the previous step as input. Therefore, it is important that the previous step finishes correctly. A problem that could appear is that DBpedia in a certain language could be temporarily down. In this case, there are two options:
@@ -147,8 +147,11 @@ Output: the `tries` folder
 ```bash
 python data_preparation/step8_generate_norm_genre_graphs.py
 ```
-For the English-language only experiment, create a new music genre graph from the English DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (lastfm, discogs and tagtraum)
-Important: make sure that acousticbrainz folder containing the stats files for each taxonomy is downloaded and positioned in the data/ folder (e.g. discogs.csv.stats)
+Input: `filtered_dbp_graph.graphml`, `tries`, `acousticbrainz`
+Output: `graphs`
+
+For the English-language only, it creates a new music genre graph from the English-language DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (lastfm, discogs and tagtraum)
+*Important*: make sure that `acousticbrainz` folder containing the stats files for each taxonomy is downloaded and positioned in the `data`.
 
 ### Music genre embedding
 
