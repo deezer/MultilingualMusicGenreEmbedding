@@ -143,7 +143,7 @@ Input: `filtered_dbp_graph.graphml`
 
 Output: the `tries` folder
 
-#### Step 8: generate normalized undirected genre graphs for the 2 experiments (multilingual and English-language only)
+#### Step 8: generate normalized undirected music genre graphs for the two translation experiments, multilingual and English-language only
 ```bash
 python data_preparation/step8_generate_norm_genre_graphs.py
 ```
