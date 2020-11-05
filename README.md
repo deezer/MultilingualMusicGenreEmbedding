@@ -66,9 +66,9 @@ The target language / source is explicitly specified through the argument `--tar
 
 Expected running time:
 
-   target     | `fr` | `es` | `en` | `lastfm` | `discogs` | `tagtraum`|
-| :-------------: |:-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|
-time in minutes    | 4 | 8 | 8 | 85 | 85 | 63 |
+Target     | `fr` | `es` | `en` | `lastfm` | `discogs` | `tagtraum`|
+| :--------: |:--------:|--------:|--------:|--------:|-------:|-------:|
+Time    | 4m | 8m | 8m | 1h25m | 1h25m | 1h3m |
 
 ## Run pipeline from scratch
 
