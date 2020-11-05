@@ -157,19 +157,25 @@ For the English-language only, it creates a new music genre graph from the Engli
 
 ### Music genre embedding
 
-*Step 1* - download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, French and Spanish.
+This part relies on data prepared through the previous steps of the pipeline. Apart from that, there are also other preparatory steps described further.
 
-*Step 2* - align French and Spanish embeddings to the English ones by following [these instructions](https://github.com/facebookresearch/fastText/tree/master/alignment),
+#### Preparatory steps
+
+Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.html) for English, French and Spanish.
+
+Align French and Spanish embeddings to the English ones by following [these instructions](https://github.com/facebookresearch/fastText/tree/master/alignment).
 The aligned embeddings should be saved in the folder `data/aligned_embeddings/`
 
-*Step 3* - generate multilingual music genre embeddings with multiple strategies (see paper):
-```
+#### Learn music genre embeddings
+Generate multilingual music genre embeddings with multiple strategies (see paper):
+```bash
+cd mmge/embeddings_learning/
 python embeddings_learning/learn_multilingual_embeddings.py multilingual
 ```
 
-*Step 4* - generate English-language only music genre embeddings with multiple strategies (see paper)
-(DBpedia + AcousticBrainz taxonomies)
-```
+Generate English-language only music genre embeddings with multiple strategies (see paper)
+```bash
+cd mmge/embeddings_learning/
 python embeddings_learning/learn_multilingual_embeddings.py acousticbrainz
 ```
 
