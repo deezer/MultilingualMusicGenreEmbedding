@@ -78,7 +78,7 @@ def generate_initial_embs(emb_type):
         return emb, known_words_count > 0
 
     def _get_emb_wavg(g, lang, a=0.001):
-        """Compute the embeddings of g w/ a sentence embedding algorithm (average weighted by the words estimated frequencies)
+        """Compute the embeddings of g with a sentence embedding algorithm (average weighted by the word estimated frequencies)
         :param g: the input genre
         :param lang: language
         :param a: a model hyper-parameter (see Arora et al. in the paper)
@@ -156,7 +156,7 @@ def beta_f(i, j, edges):
     :param i: source node
     :param j: target node
     :param edges: list of edges grouped by edge type
-    :return: 1 if between i and j is an equivalence type of relation or 1/degree of i
+    :return: 1 if between i and j there is an equivalence relation type, else 1/degree of i
     """
     ordered_types_by_priority = ['sameAs', 'wikiPageRedirects', 'musicSubgenre', 'stylisticOrigin', 'musicFusionGenre', 'derivative']
     for et in ordered_types_by_priority:
