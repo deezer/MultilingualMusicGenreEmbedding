@@ -64,6 +64,16 @@ python compute_acousticbrainz_results.py --target tagtraum
 
 The target language / source is explicitly specified through the argument `--target`. The translation then happens from the other two languages / sources to the target.
 
+Expected running time:
+ Target        | Time           |
+| :-------------: |:-------------:|
+| `fr`            | 4m |
+| `es`            | 8m |
+| `en`            | 8m |
+| `lastfm`        | 1h25m |
+| `discogs`       | 1h25m |
+| `tagtraum`      | 1h3m |
+
 ## Run pipeline from scratch
 
 ### Data preparation
@@ -141,7 +151,7 @@ However, we should still reach the same conclusions as those presented in the pa
 - Exploiting the semantics of the music genre graph edges leads to marginally improved results w.r.t. the
 original retrofitting in the English-language multi-source translation and significantly higher macro-AUC scores in the
 cross-lingual translation.
-- The initialization with smooth inverse frequency (*sif*) averaging yields better translations than the initialization with the common average (*avg*).
+- The initialization with smooth inverse frequency (*sif*) averaging yields better translations than the initialization with the ordinary average (*avg*).
 - We outperform the baselines by large margins in both experiments.
 
 # Cite
