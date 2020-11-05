@@ -125,7 +125,7 @@ Input: `filtered_musical_items.csv`
 
 Output: `dbp_multigraph.graphml`
 
-#### Step 6: clean the raw DBpedia graph
+#### Step 6: clean the raw multilingual DBpedia-based music genre graph
 ```bash
 python data_preparation/step6_clean_dbp_graph.py
 ```
