@@ -30,7 +30,7 @@ Data collected from DBpedia, namely the parallel corpus and music genre graph, c
 
 For the cross-source English-language music genre translation, we rely on the same parallel corpus as in our previous work [Leveraging knowledge bases and parallel annotations for music genre translation](https://arxiv.org/abs/1907.08698). We also provide for download the pre-computed distance tables required by the baseline translator. For more information about how these tables are generated, please consult [this git repository](https://github.com/deezer/MusicGenreTranslation).
 
-The data is available [for download on Zenodo](https://zenodo.org/record/4247190#.X6PgKy9h0ch). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
+The data is available [for download on Zenodo](https://zenodo.org/record/4247202#.X6P9Hi9h0ch). After download, the `data` folder must be placed in the root folder containing the cloned code. Otherwise, the constant `DATA_DIR` defined in `mmge/utils/utils.py` should be changed accordingly.
 
 The `data` folder contains the following data:
 - `acousticbrainz`: the English-language music genre taxonomies released in the [MediaEval 2018 AcousticBrainz Genre Task](https://mtg.github.io/acousticbrainz-genre-dataset/data/).
