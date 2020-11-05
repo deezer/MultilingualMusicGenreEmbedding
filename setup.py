@@ -9,6 +9,7 @@ setup(name='mmge',
                         'networkx==2.2',
                         'joblib==0.13.2',
                         'torch==1.4.0',
-                        'SPARQLWrapper==1.8.4'],
+                        'SPARQLWrapper==1.8.4',
+                        'spacy==2.2.2'],
       package_data={'mmge': ['README.md']},
       packages=find_packages())
