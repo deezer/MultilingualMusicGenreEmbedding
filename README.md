@@ -65,18 +65,10 @@ python compute_acousticbrainz_results.py --target tagtraum
 The target language / source is explicitly specified through the argument `--target`. The translation then happens from the other two languages / sources to the target.
 
 Expected running time:
- Target        | Time           |
-| :-------------: |:-------------:|
-| `fr`            | 4m |
-| `es`            | 8m |
-| `en`            | 8m |
-| `lastfm`        | 1h25m |
-| `discogs`       | 1h25m |
-| `tagtraum`      | 1h3m |
 
-   Target     | `fr` | `es` | `en` | `lastfm` | `discogs` | `tagtraum`|
+   target     | `fr` | `es` | `en` | `lastfm` | `discogs` | `tagtraum`|
 | :-------------: |:-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|
-Time    | 4m | 8m | 8m | 1h25m | 1h25m | 1h3m |
+time in minutes    | 4 | 8 | 8 | 85 | 85 | 63 |
 
 ## Run pipeline from scratch
 
