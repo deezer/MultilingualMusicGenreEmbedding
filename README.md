@@ -165,7 +165,7 @@ Download [fastText word embeddings](https://fasttext.cc/docs/en/crawl-vectors.ht
 
 Align French and Spanish embeddings to the English ones by following [these instructions](https://github.com/facebookresearch/fastText/tree/master/alignment).
 
-The aligned embeddings should be saved in a separate file per language under the names `cc.en-en.vec`, `cc.es-en.vec`, `cc.fr-en.vec` and placedin the `data/aligned_embeddings/` folder.
+The aligned embeddings should be saved in a separate file per language under the names `cc.en-en.vec` (the original English word embeddings), `cc.es-en.vec` (Spanish word embeddings aligned with the English ones), `cc.fr-en.vec` (French word embeddings aligned with the English ones) and placed in the `data/aligned_embeddings/` folder.
 
 #### Learn music genre embeddings
 Generate multilingual music genre embeddings with various strategies to initialize the embeddings and different retrofitting versions:
