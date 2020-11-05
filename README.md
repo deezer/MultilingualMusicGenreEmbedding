@@ -147,11 +147,13 @@ Output: the `tries` folder
 ```bash
 python data_preparation/step8_generate_norm_genre_graphs.py
 ```
-Input: `filtered_dbp_graph.graphml`, `tries`, `acousticbrainz`
-Output: `graphs`
+Input: `filtered_dbp_graph.graphml`, the `tries` and `acousticbrainz` folders
+
+Output: the `graphs` folders
 
 For the English-language only, it creates a new music genre graph from the English-language DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (lastfm, discogs and tagtraum)
-*Important*: make sure that `acousticbrainz` folder containing the stats files for each taxonomy is downloaded and positioned in the `data`.
+
+*Important*: make sure that `acousticbrainz` folder containing the stats files for each taxonomy is downloaded in the `data` folder.
 
 ### Music genre embedding
 
