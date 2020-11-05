@@ -66,11 +66,13 @@ The target language / source is explicitly specified through the argument `--tar
 
 Expected running time:
 
-Target     | `fr` | `es` | `en` | `lastfm` | `discogs` | `tagtraum`|
+Target     | `fr` | `es` | `en` | `discogs` | `lastfm` | `tagtraum`|
 | :--------: |:--------:|--------:|--------:|--------:|-------:|-------:|
 Time    | 4m | 8m | 8m | 1h25m | 1h25m | 1h3m |
 
 ## Run pipeline from scratch
+We further explain how to run the full pipeline from scratch.
+Before starting, multiple resources needed for the evaluation of the English-language only translation baseline should be downloaded from Zenodo (see [Download data](#download-data)) and positioned in the `data` folder: `acousticbrainz`, `ismir2019baseline` and `folds` (only the files `[lastfm|discogs|tagtraum]_4-fold_by_artist.tsv`).
 
 ### Data preparation
 
