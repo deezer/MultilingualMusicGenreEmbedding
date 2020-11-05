@@ -19,7 +19,7 @@ def estimated_word_freqs_per_lang(langs, models):
     """Estimate the word frequency from fasttext pre-trained word models
     :param langs: the targetted languages
     :param models: dict of fasttext pre-trained word models per language
-    :return: dict of word frequency estimation per language
+    :return: dict of word-frequency estimations per language
     """
     word_ranks = {}
     for lang in langs:
@@ -44,7 +44,7 @@ def estimate_word_freqs(word_ranks, mandelbrot=False):
         f(z, N) = approx. 1/z
         p(word with z rank) = f(z, N) / N = 1/(z * N)
         :param word_ranks: dict of word ranks
-        :param mandelbrot: if Mandelbrot generalization of this is to consider f(z, N) = 1/(z + 2.7) from Word Frequency Distributions By R. Harald Baayen
+        :param mandelbrot: if Mandelbrot generalization of Zipf should be used. Then f(z, N) = 1/(z + 2.7) (Word Frequency Distributions By R. Harald Baayen)
         :return: dict of word frequencies
     """
     word_freqs = {}
