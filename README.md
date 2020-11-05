@@ -157,7 +157,7 @@ For the English-language only, it creates a new music genre graph from the Engli
 
 ### Music genre embedding
 
-This part relies on data prepared through the previous steps of the pipeline. Apart from that, there are also other preparatory steps described further.
+This part relies on data prepared through the previous steps of the pipeline. Apart from those, there are also other preparatory steps described further.
 
 #### Preparatory steps
 
