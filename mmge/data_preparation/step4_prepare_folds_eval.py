@@ -80,7 +80,7 @@ def iterative_split(df, out_file, target, n_splits, extra_criterion=None, seed=N
     """Implement the iterative split algorithm (see paper) and save results
     :param df: input data
     :param out_file: the output file containing the same data as the input corpus plus a column specifying the fold
-    :param target: is the target language for which the files are generated
+    :param target: the target language for which the files are generated
     :param n_splits: the number of folds
     :param extra_criterion: an extra condition to be taken into account in the split such as music items from the same artist should be all in the same fold
     """

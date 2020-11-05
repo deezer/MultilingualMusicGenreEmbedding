@@ -135,7 +135,7 @@ def collect_genres_from_seeds(genres, lang):
 def process_query(query, sparql_dbp, relations, seeds, genres, inv=False):
     """Process the results returned by a query and update the genres with the newly discovered genres and relations
     :param query: the SPARQL query to be executed
-    :param sparql_dbp: DBPedia SPARQL endpoint
+    :param sparql_dbp: DBpedia SPARQL endpoint
     :param relations: dictionary with genre relations that is updated
     :param seeds: the seeds of genres that still need to be crawled; it will be updated here too
     :param genres: the list of unique genres that is updated
@@ -205,10 +205,10 @@ def collect_aliases_from_seeds(seeds, lang, genre_aliases):
 
 
 def create_dbp_multigraph(genres, relations, genre_aliases):
-    """Create the DBpedia music genre multidigraph
+    """Create the DBpedia music genre multigraph
     :param genres: the list of discovered genres that will be graph nodes
     :param relations: the list of music genre relations that will be edges
-    :param genre_aliases: the list of music genre aliases
+    :param genre_aliases: the list of music genre aliases in the same or another language
     """
     G = nx.MultiGraph()
     for lang in genres:
@@ -266,7 +266,7 @@ for lang in langs:
     print(lang, len(genres[lang]))
     time.sleep(30)
 
-# After finish crawling the relations,
+# After finishing crawling the relations,
 # bring in the aliases of the newly discovered genres
 print("Complete the aliases for all languages")
 for lang in langs:
@@ -276,6 +276,6 @@ for lang in langs:
     print(lang, len(genre_aliases[lang]))
     time.sleep(30)
 
-# Create the graph
+# Create and save the graph
 G = create_dbp_multigraph(genres, relations, genre_aliases)
 nx.write_graphml(G, utils.RAW_GRAPH_PATH)

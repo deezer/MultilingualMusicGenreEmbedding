@@ -80,7 +80,7 @@ if not os.path.exists(out_dir):
 else:
     print("Directory ", out_dir, " already exists")
 
-# SPARQL quer
+# SPARQL query template
 query_template = Template("""SELECT ?entity, ?alias{{
             SELECT ?entity, ?alias
             WHERE {
@@ -103,7 +103,7 @@ for lang in langs:
         print(ex)
 
 # Save DBpedia entities
-# First their DBpedia URLs per language that is used for getting their genres
+# First their DBpedia URLs per language which will be used to collect their genres in the next step
 for lang in ent_per_lang:
     with open(opj(out_dir, lang + '_entities.txt'), 'w') as _:
         for g in ent_per_lang[lang]:
