@@ -1,7 +1,8 @@
 import numpy as np
 
+
 class Translator():
-    """The base class for translator classes
+    """The base class for defining translators
     """
 
     def train_and_evaluate(self, train_data, target_data, eval_data, eval_target, score_function):

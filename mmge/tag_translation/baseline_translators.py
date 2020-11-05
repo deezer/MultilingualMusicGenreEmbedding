@@ -16,7 +16,7 @@ class DbpMappingTranslator(Translator):
     def __init__(self, tag_manager, table_path):
         """Constructor requires a tag_manager and the path to where the translation table is stored
         :param tag_manager: object of type TagManager (in tag_manager.py)
-        :param table_path: the filepath to the translation table
+        :param table_path: the path of the translation table file
         """
         self.tag_manager = tag_manager
         self.source_genres = self.tag_manager.source_tags
@@ -35,8 +35,8 @@ class GraphDistanceMapper(Translator):
     def __init__(self, tag_manager, G, langs):
         """Constructor
         :param tag_manager: object of type TagManager (in tag_manager.py)
-        :param G: the multilingual DBpedia-based multilingual music genre graph
-        :param langs: the languages to be considered
+        :param G: the multilingual DBpedia-based music genre graph
+        :param langs: languages to be considered
         """
         self.tag_manager = tag_manager
         self.tries = {}
