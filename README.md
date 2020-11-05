@@ -20,7 +20,7 @@ cd MultilingualMusicGenreEmbedding
 python setup.py install
 ```
 
-Requirements: numpy, pandas, sklearn, networkx, joblib, torch, SPARQLWrapper.
+Requirements: numpy, pandas, sklearn, networkx, joblib, torch, SPARQLWrapper, spacy.
 
 ## Reproduce published results
 We further explain how to reproduce the results reported in *Table 3* and *Table 4* of the article.
@@ -79,43 +79,57 @@ Each step uses the output of the previous step as input. Therefore, it is import
 - wait until DBpedia is again up and could be queried correctly.
 - use the data we provided for download to artificially replace the output of the problematic step, thus ensuring the input of the next step. Repeat this for all the problematic steps.
 
-*Step 1* - collect artists, bands and music works from DBpedia:
+####Step 1: collect DBpedia music artists, bands and music works
 ```bash
-cd mmge/data_preparation
+cd mmge/data_preparation/
 python data_preparation/step1_collect_dbp_music_items.py
 ```
+Input: nothing
+Output: `[fr|es|en]_entities.txt` and `musical_items_ids.csv`
 
-*Step 2* - collect the music genres annotations of the previously queried music items:
+####Step 2: collect DBpedia-based music genres annotations for music items:
 ```bash
 python data_preparation/step2_collect_dbp_genres_for_music_items.py
 ```
+Input: `[fr|es|en]_entities.txt` and `musical_items_ids.csv`
+Output: `musical_items.csv`
 
-*Step 3* - filter the corpus by removing music genres that do not appear at least 16 times:
+####Step 3: filter the corpus by removing music genres that do not appear at least 16 times
 ```bash
 python data_preparation/step3_filter_corpus.py
 ```
+Input: `musical_items.csv`
+Output: `filtered_musical_items.csv`
 
-*Step 4* - split corpus in 4 folds for each language:
+####Step 4: split corpus in 4 folds for each language
 ```bash
 python data_preparation/step4_prepare_folds_eval.py
 ```
+Input: `filtered_musical_items.csv`
+Output: the files of type `[fr|es|en]_4-fold.tsv`) in the `folds` folder
 
-*Step 5* - collect the multilingual DBpedia music genre graph:
+####Step 5 collect the multilingual DBpedia-based music genre graph
 ```bash
 python data_preparation/step5_collect_dbp_genre_graph.py
 ```
+Input: `filtered_musical_items.csv`
+Output: `dbp_multigraph.graphml`
 
-*Step 6* - clean the raw DBpedia graph:
+####Step 6: clean the raw DBpedia graph
 ```bash
 python data_preparation/step6_clean_dbp_graph.py
 ```
+Input: `dbp_multigraph.graphml`
+Output: `filtered_dbp_graph.graphml`
 
-*Step 7* - create tries to tokenize new tags, potentially written without spaces, in DBpedia-based words:
+####Step 7: create tries per language from words of music genres discovered from DBpedia
 ```bash
 python data_preparation/step7_create_tries.py
 ```
+Input: `filtered_dbp_graph.graphml`
+Output: the `tries` folder
 
-*Step 8* - generate normalized undirected genre graphs for the 2 experiments (multilingual and English-language only):
+####Step 8: generate normalized undirected genre graphs for the 2 experiments (multilingual and English-language only)
 ```bash
 python data_preparation/step8_generate_norm_genre_graphs.py
 ```
