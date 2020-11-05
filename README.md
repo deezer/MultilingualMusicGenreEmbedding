@@ -74,6 +74,10 @@ Expected running time:
 | `discogs`       | 1h25m |
 | `tagtraum`      | 1h3m |
 
+   Target     | `fr` | `es` | `en` | `lastfm` | `discogs` | `tagtraum`|
+| :-------------: |:-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|
+Time    | 4m | 8m | 8m | 1h25m | 1h25m | 1h3m |
+
 ## Run pipeline from scratch
 
 ### Data preparation
