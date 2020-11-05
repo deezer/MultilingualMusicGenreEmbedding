@@ -75,9 +75,9 @@ We further explain how to run the full pipeline from scratch.
 Before starting, multiple resources needed for the evaluation of the English-language only translation baseline should be downloaded from Zenodo (see [Download data](#download-data)) and positioned in the `data` folder: `acousticbrainz`, `ismir2019baseline` and `folds` (only the files `[lastfm|discogs|tagtraum]_4-fold_by_artist.tsv`).
 
 ### Data preparation
-Each step uses the output of the previous step as input. Therefore, it is important that the previous step does not fail. Sometimes, the DBpedia versions in different languages could be temporarily down. In this case, there are two options to proceed:
+Each step uses the output of the previous step as input. Therefore, it is important that the previous step finishes correctly. A problem that could appear is that DBpedia in a certain language could be temporarily down. In this case, there are two options:
 - wait until DBpedia is again up and could be queried correctly.
-- use the data we provided for download to artificially replace the output of the problematic step, hence ensure the input of the next step.
+- use the data we provided for download to artificially replace the output of the problematic step, thus ensuring the input of the next step. Repeat this for all the problematic steps.
 
 *Step 1* - collect artists, bands and music works from DBpedia:
 ```bash
