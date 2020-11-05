@@ -153,7 +153,7 @@ Output: the `graphs` folder
 
 For the English-language only, it creates a new music genre graph from the English-language DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (*lastfm*, *discogs* and *tagtraum*)
 
-*Important*: make sure that `acousticbrainz` folder containing the stats files for each taxonomy is downloaded in the `data` folder.
+*Important*: make sure that the `acousticbrainz` folder containing the stats files for each taxonomy is downloaded and placed in the `data` folder.
 
 ### Music genre embedding
 
