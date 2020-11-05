@@ -84,7 +84,7 @@ class Trie(object):
     def _has_prefix(self, prefix, check_has_word):
         """
             Check if a prefix exists in the trie
-            if check_has_word is True, then it checks whether the word to exist
+            if check_has_word is True, then it checks whether the word exists
         """
         if prefix is None:
             return False
@@ -103,8 +103,7 @@ class Trie(object):
 
     def longest_prefix(self, prefix):
         """
-            Check if a prefix exists in the trie
-            if check_has_word is True, then it checks whether the word to exist
+            Check if a prefix exists in the trie and returns the longest prefix
         """
         if prefix is None:
             return None
@@ -171,13 +170,13 @@ class Trie(object):
 
     def get_all_words(self):
         """
-            Return all the words in the trie
+            Return all the words of the trie
         """
         return self.get_words("")
 
     def print_words(self, prefix=""):
         """
-            Print all words that start with given prefix
+            Print all words that start with a given prefix
             If prefix is "", all the words of the trie are printed
         """
         result = self.get_words(prefix)

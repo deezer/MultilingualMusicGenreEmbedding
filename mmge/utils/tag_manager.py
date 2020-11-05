@@ -62,7 +62,7 @@ class TagManager:
         """ Normalize a tag
         :param tag: input tag
         :param prefixed: if the tag is prefixed with the language code
-        :param asList: if the tag tokens are returned as list of concatenated
+        :param asList: if the tag tokens are returned as list or concatenated
         :return: the normalized tag
         """
         if prefixed:
@@ -75,7 +75,7 @@ class TagManager:
         :param tag: input tag
         :param trie: used for attempting to split the tag in multiple tokens
         :param prefixed: if the tag is prefixed with the language code
-        :param asList: if the tag tokens are returned as list of concatenated
+        :param asList: if the tag tokens are returned as list or concatenated
         :return: the normalized tag which was also tokenized with the trie
         """
         words = set()
@@ -104,7 +104,7 @@ class TagManager:
         -replace special characters by space
         -sort the obtained words
         :param s: the input string / tag
-        :param asList: if the tag tokens are returned as list of concatenated
+        :param asList: if the tag tokens are returned as list or concatenated
         :param sort: if the obtained tokens are sorted before concatenation
         :return: the normalized tag
         """

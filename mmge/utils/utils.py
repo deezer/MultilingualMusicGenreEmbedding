@@ -10,36 +10,36 @@ import pandas as pd
 import networkx as nx
 
 
-# Relative path of the data dir
+# Relative path of the data folder
 DATA_DIR = '../../data/'
-# Relative path of the acousticbrainz taxonomy info dir
+# Relative path of the acousticbrainz taxonomies info folder
 ACOUSTICBRAINZ_DIR = ''.join([DATA_DIR, 'acousticbrainz/'])
 # Relative path of the raw corpus
 RAW_CORPUS_FILE_PATH = ''.join([DATA_DIR, 'musical_items.csv'])
 # Relative path of the filtered corpus
 CORPUS_FILE_PATH = ''.join([DATA_DIR, 'filtered_musical_items.csv'])
-# Relative path of the filtered graph
+# Relative path of the raw graph
 RAW_GRAPH_PATH = ''.join([DATA_DIR, 'dbp_multigraph.graphml'])
 # Relative path of the filtered graph
 GRAPH_PATH = ''.join([DATA_DIR, 'filtered_dbp_graph.graphml'])
 # Relative path of the folder containing the data folds
 FOLDS_DIR = ''.join([DATA_DIR, 'folds/'])
-# Relative path of the folder containing the data folds
+# Relative path of the folder containing the tries
 TRIES_DIR = ''.join([DATA_DIR, 'tries/'])
 # Relative path of the normalized multilingual genre graph
 NORM_MULTILING_GRAPH_PATH = ''.join([DATA_DIR, 'graphs/norm_multilang.graphml'])
-# Relative path of the normalized English only genre graph
+# Relative path of the normalized English-language only genre graph
 NORM_EN_GRAPH_PATH = ''.join([DATA_DIR, 'graphs/norm_acousticbrainz.graphml'])
 # Relative path of the aligned fastText embeddings
 ALIGNED_FT_EMB_PATH = ''.join([DATA_DIR, 'aligned_embeddings/'])
-# Relative path of the acousticbrainz generated embeddings dir
+# Relative path of the acousticbrainz generated embeddings folder
 ACOUSTICBRAINZ_EMBS_DIR = ''.join([DATA_DIR, 'generated_embeddings/acousticbrainz/'])
-# Relative path of the multilingual generated embeddings dir
+# Relative path of the multilingual generated embeddings folder
 MULTILING_EMBS_DIR = ''.join([DATA_DIR, 'generated_embeddings/multilingual/'])
 # Relative path of the precomputed ismir2019 baseline translation tables
 ISMIR2019_TRANSLATION_TABLES_DIR = ''.join([DATA_DIR, 'ismir2019baseline/'])
 
-# Graph will be loaded only once and stored here
+# Graph will be loaded only once
 GRAPH = None
 # Tags per language based on the graph
 TAG_PER_LANG = None
@@ -48,7 +48,7 @@ TAG_PER_LANG = None
 langs = ['en', 'es', 'fr']
 # Strategies to compute multi-word expression embeddings from word embeddings
 emb_composition_types = ['avg', 'sif']
-# Strategies in retrofitting; weighted is when edges are treated differently in the retrofitting method depending on their types (see paper)
+# Strategies in retrofitting; weighted is when edges are treated differently in the retrofitting algorithm depending on their types (see paper)
 retro_emb_types = ['weighted', 'unweighted']
 # DBpedia types of music genre relations
 rels_types = {'wikiPageRedirects', 'stylisticOrigin', 'musicSubgenre', 'musicFusionGenre', 'derivative', 'sameAs'}
@@ -134,7 +134,7 @@ def get_lang(ent):
 
 
 def get_seeds_filter(seeds):
-    """Helper to format the part of the query which retrieves music genres for a seed list of music items provided by their URL
+    """Helper to format the part of the query which retrieves music genres for a seed list of music items provided through their URLs
     :param seeds: seed music items
     :return: the formatted part of query which will be joined to the main query
     """
@@ -262,7 +262,7 @@ def get_graph(graph_path=GRAPH_PATH):
 def load_trie(lang, trie_dir=TRIES_DIR):
     """Load trie for a language
     :param lang: the targetted language
-    :param trie_dir: the directory where tries are serialized
+    :param trie_dir: the directory where tries are stored
     """
     lemma_trie = None
     with open(os.path.join(trie_dir, lang, 'lemma_trie'), 'rb') as f:
@@ -316,7 +316,7 @@ def load_tag_csv(path, cols, sep='\t', format_values=False):
     """Load a tag csv in a dataframe
     :param path: the dataset file path
     :param cols: the columns mapped on the sources / languages
-    :param sep: the separator in the csv file
+    :param sep: the separator in the data file
     :param format_values: if the values need entity formatting
     :return: a dataframe with the data
     """
@@ -329,10 +329,10 @@ def load_tag_csv(path, cols, sep='\t', format_values=False):
 
 
 def read_translation_table(path, tag_manager=None):
-    """Read pre-computed trabslation table
+    """Read pre-computed translation table
     :param path: csv file path
-    :param tag_manager: instance of type TagManager
-    :return: the translation table as dataframe
+    :param tag_manager: instance of type TagManager (in tag_manager.py)
+    :return: the translation table as a dataframe
     """
     kb_tr_table = pd.read_csv(path, index_col=0)
     if tag_manager:
@@ -343,7 +343,7 @@ def read_translation_table(path, tag_manager=None):
 
 def truncate(number, digits) -> float:
     """Truncate a number to a specific number of decimals
-    :param number: the float number
+    :param number: a float
     :param digits: the number of decimals
     """
     stepper = 10.0 ** digits
