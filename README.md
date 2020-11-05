@@ -149,9 +149,9 @@ python data_preparation/step8_generate_norm_genre_graphs.py
 ```
 Input: `filtered_dbp_graph.graphml`, the `tries` and `acousticbrainz` folders
 
-Output: the `graphs` folders
+Output: the `graphs` folder
 
-For the English-language only, it creates a new music genre graph from the English-language DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (lastfm, discogs and tagtraum)
+For the English-language only, it creates a new music genre graph from the English-language DBpedia and the [AcousticBrainz](https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/) taxonomies (*lastfm*, *discogs* and *tagtraum*)
 
 *Important*: make sure that `acousticbrainz` folder containing the stats files for each taxonomy is downloaded in the `data` folder.
 
@@ -167,13 +167,13 @@ Align French and Spanish embeddings to the English ones by following [these inst
 The aligned embeddings should be saved in the folder `data/aligned_embeddings/`
 
 #### Learn music genre embeddings
-Generate multilingual music genre embeddings with multiple strategies (see paper):
+Generate multilingual music genre embeddings with various strategies to initialize the embeddings and different retrofitting versions:
 ```bash
 cd mmge/embeddings_learning/
 python embeddings_learning/learn_multilingual_embeddings.py multilingual
 ```
 
-Generate English-language only music genre embeddings with multiple strategies (see paper)
+Generate English-language only music genre embeddings with various strategies to initialize the embeddings and different retrofitting versions:
 ```bash
 cd mmge/embeddings_learning/
 python embeddings_learning/learn_multilingual_embeddings.py acousticbrainz
