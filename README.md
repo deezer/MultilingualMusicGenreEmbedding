@@ -39,7 +39,7 @@ The `data` folder contains the following data:
 - `filtered_musical_items.csv`: the multilingual parallel corpus containing DBpedia-based music items with music genre annotations in at least two languagues. This corpus has been filtered by removing music genres which did not appear at least 16 times (to ensure that each music genre appears 4 times in each of the 4 folds).
 - `filtered_dbp_graph.graphml`: the multilingual DBpedia-based music genre graph in a cleaned version. Tags that were not recognized as proper DBpedia resources and the connected components that did not contain at least a corpus music genre were removed.
 - `folds`: the parallel corpus split in 4 folds in a stratified way for each source / language as target.
-- `tries`: deserialized `Trie` (`mmge/utils/trie.py`) objects for each language created from vocabularies extracted from DBpedia music genre tags.
+- `tries`: serialized `Trie` (`mmge/utils/trie.py`) objects for each language created from vocabularies extracted from DBpedia music genre tags.
 - `graphs`: graphs with normalized tags as nodes for each experiment, English-language only and multilingual.
 - `generated_embeddings`: English-language only and multilingual music genre embeddings learned with various strategies to initialize the embeddings and different retrofitting versions.
 - `ismir2019baseline`: pre-computed distance tables to be used by the baseline translator in the cross-source English-language translation experiments.
