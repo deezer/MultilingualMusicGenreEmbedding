@@ -82,7 +82,7 @@ Each step uses the output of the previous step as input. Therefore, it is import
 #### Step 1: collect DBpedia music artists, bands and music works
 ```bash
 cd mmge/data_preparation/
-python data_preparation/step1_collect_dbp_music_items.py
+python step1_collect_dbp_music_items.py
 ```
 
 Input: nothing
@@ -91,7 +91,7 @@ Output: `[fr|es|en]_entities.txt` and `musical_items_ids.csv`
 
 #### Step 2: collect DBpedia-based music genres annotations for music items
 ```bash
-python data_preparation/step2_collect_dbp_genres_for_music_items.py
+python step2_collect_dbp_genres_for_music_items.py
 ```
 
 Input: `[fr|es|en]_entities.txt` and `musical_items_ids.csv`
@@ -100,7 +100,7 @@ Output: `musical_items.csv`
 
 #### Step 3: filter the corpus by removing music genres that do not appear at least 16 times
 ```bash
-python data_preparation/step3_filter_corpus.py
+python step3_filter_corpus.py
 ```
 
 Input: `musical_items.csv`
@@ -109,7 +109,7 @@ Output: `filtered_musical_items.csv`
 
 #### Step 4: split corpus in 4 folds for each language
 ```bash
-python data_preparation/step4_prepare_folds_eval.py
+python step4_prepare_folds_eval.py
 ```
 
 Input: `filtered_musical_items.csv`
@@ -118,7 +118,7 @@ Output: the files of type `[fr|es|en]_4-fold.tsv`) in the `folds` folder
 
 #### Step 5 collect the multilingual DBpedia-based music genre graph
 ```bash
-python data_preparation/step5_collect_dbp_genre_graph.py
+python step5_collect_dbp_genre_graph.py
 ```
 
 Input: `filtered_musical_items.csv`
@@ -127,7 +127,7 @@ Output: `dbp_multigraph.graphml`
 
 #### Step 6: clean the raw multilingual DBpedia-based music genre graph
 ```bash
-python data_preparation/step6_clean_dbp_graph.py
+python step6_clean_dbp_graph.py
 ```
 
 Input: `dbp_multigraph.graphml`
@@ -136,7 +136,7 @@ Output: `filtered_dbp_graph.graphml`
 
 #### Step 7: create tries per language from words of music genres discovered from DBpedia
 ```bash
-python data_preparation/step7_create_tries.py
+python step7_create_tries.py
 ```
 
 Input: `filtered_dbp_graph.graphml`
@@ -145,7 +145,7 @@ Output: the `tries` folder
 
 #### Step 8: generate normalized undirected music genre graphs for the two translation experiments, multilingual and English-language only
 ```bash
-python data_preparation/step8_generate_norm_genre_graphs.py
+python step8_generate_norm_genre_graphs.py
 ```
 Input: `filtered_dbp_graph.graphml`, the `tries` and `acousticbrainz` folders
 
