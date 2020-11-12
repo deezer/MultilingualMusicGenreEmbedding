@@ -34,7 +34,7 @@ if __name__ == "__main__":
     target_tags = [f"{target}:{el}" for el in utils.corpus_genres_for_source(dhelper.dataset_df, target)]
     tm = TagManager.get(sources, target, source_tags, target_tags)
     judge = Judge()
-    print("The judged was initialized")
+    print("The judge was initialized")
 
     translators = {}
     G = nx.read_graphml(utils.NORM_MULTILING_GRAPH_PATH)
