@@ -195,7 +195,7 @@ cross-lingual translation.
 - The initialization with smooth inverse frequency (*sif*) averaging yields better translations than the initialization with the ordinary average (*avg*).
 - We outperform the baselines by large margins in both experiments.
 
-# Cite
+## Cite
 
 Please cite our paper if you use this code in your own work:
 
