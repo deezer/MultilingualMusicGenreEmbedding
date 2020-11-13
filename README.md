@@ -171,13 +171,13 @@ The aligned embeddings should be saved in a separate file per language under the
 Generate multilingual music genre embeddings with various strategies to initialize the embeddings and different retrofitting versions:
 ```bash
 cd mmge/embeddings_learning/
-python learn_multilingual_embeddings.py multilingual
+python learn_embeddings.py multilingual
 ```
 
 Generate English-language only music genre embeddings with various strategies to initialize the embeddings and different retrofitting versions:
 ```bash
 cd mmge/embeddings_learning/
-python learn_multilingual_embeddings.py acousticbrainz
+python learn_embeddings.py acousticbrainz
 ```
 
 ### Music genre translation
